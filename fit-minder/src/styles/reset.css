@@ -52,6 +52,18 @@ label {
   line-height: 1.1;
 }
 
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
 /* 제목에 대한 text-wrap을 balance로 설정합니다. */
 h1,
 h2,

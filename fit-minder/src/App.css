@@ -21,8 +21,8 @@ body {
   border: 1px solid black;
 }
 
-/* 초기 로그인 페이지 */
 
+/* 초기 로그인 페이지 */
 .MainLogo {
   display: inline-flex;
   flex-direction: column;
@@ -78,8 +78,7 @@ body {
 /* 메인 페이지 */
 .MainHeader {
   display: inline-flex;
-  justify-content: center;
-  align-content: center;
+  flex-direction: column;
   width: 390px;
   height: 407px;
   background-color: black;
@@ -87,27 +86,126 @@ body {
 }
 
 .MainHeader > .Header {
-  display: inline-flex;
+  display:flex;
+  justify-content: center;
+  align-items: flex-start;
   color:#ffffff;
   margin-top: 36px;
+  position: relative;
 }
 
-.Header > p {
+.Header p {
   font-size: 2rem;
   font-weight: 700;
 }
 
-.Header > Nav {
+.Header > .Nav {
   display: flex;
+  position: absolute;
   flex-direction: column;
+  margin-top: 3px;
+  height: 60px;
+  left: 340px;
 }
 
-.Nav > div {
+.Nav  div {
   margin-top:4px;
   height: 2px;
   width: 18px;
   background-color: #ffffff;
 }
+
+.AlarmBtn {
+  display: inline-flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 51px;
+  background-color: #ffffff;
+  gap: 4px;
+  padding: 4px 0 4px;
+  width: 164px;
+  border-radius: 12px;
+  margin-left: 2.4rem;
+}
+
+.AlarmBtn > p {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.AlarmBtn > img {
+  width: 20px;
+  height: 20px;
+}
+
+#HeaderCtx {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 12px;
+  margin-left: 2.4rem;
+}
+
+#HeaderImg {
+  width: 14.8rem;
+  height: 15.5rem;
+  position: absolute;
+  top: 17.4rem;
+  margin-left: 21.6rem; 
+}
+
+.StretchStr {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  background-color: #77D32D;
+  color: #ffffff;
+  width: 34rem;
+  height: 4.6rem;
+  margin-top: 8.7rem;
+  z-index: 1;
+  border-radius: 5px;
+  margin-left: 2.4rem;
+  padding: 0 8px 0; 
+}
+
+.StretchStr > p {
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.StretchStr > i {
+  font-size: 3rem;
+}
+
+.StretchIdx {
+  margin-top: 3.6rem;
+  display: flex;
+}
+
+#StretchText  {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2.4rem 0;
+  align-items: center;
+  width: 100%;
+}
+
+#StretchText > p {
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+}
+ 
+#StretchText > button {
+  display: flex;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  gap: 3px;
+}
+
 
 /* 맥북 에어 크기 기준 웹 스타일 */
 @media (min-width: 1440px) {
