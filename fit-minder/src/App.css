@@ -1,38 +1,118 @@
-.App {
+/* 기본 앱 스타일 */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Pretendard', sans-serif; /* Pretendard 폰트 사용 */
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  max-width: 390px; /* 아이폰 13 기준 화면 크기 */
+  margin: 0 auto;
+  padding:0;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 1px solid black;
+}
+
+/* 초기 로그인 페이지 */
+
+.MainLogo {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 22px;
+  margin-top: 174px;
+  padding-left: 24px;
+  padding-top:0;
+}
+
+.MainLogo > h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+
+}
+
+.MainText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 273px;
+  gap: 0.5rem;
+  padding: 6px 16px;
+}
+
+.MainText > p {
+  font-size: 1.4rem;
   text-align: center;
+  font-weight: 600;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.MainText > img {
+  width: 23px;
+  height: 23px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.MainLogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25.3px;
+  margin-top: 2.6rem;
+  margin-bottom: 16.2rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.MainLogin > img {
+  width: 53px;
+  height: 53px;
+}
+
+
+/* 메인 페이지 */
+.MainHeader {
+  display: inline-flex;
+  justify-content: center;
+  align-content: center;
+  width: 390px;
+  height: 407px;
+  background-color: black;
+  border-radius: 0 0 6rem 6rem;
+}
+
+.MainHeader > .Header {
+  display: inline-flex;
+  color:#ffffff;
+  margin-top: 36px;
+}
+
+.Header > p {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.Header > Nav {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.Nav > div {
+  margin-top:4px;
+  height: 2px;
+  width: 18px;
+  background-color: #ffffff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+/* 맥북 에어 크기 기준 웹 스타일 */
+@media (min-width: 1440px) {
+  .container {
+    
   }
 }
+

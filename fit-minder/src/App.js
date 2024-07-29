@@ -1,13 +1,26 @@
-import React from "react";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import './App.css';
+import Main from "./components/main"
+import First from "./components/first"
+
+
 
 function App() {
+
+
   return (
-    <div className="App">
-      <div className="MainLogo">
-        <img src={`${process.env.PUBLIC_URL}/logo.jpg`} alt="" />
+    <Router>
+      <div className="container">
+        
+        <Routes>
+          <Route path="/" element={<First />} />
+          <Route path="/main" element={<Main />} />
+        </Routes>
       </div>
-    </div>
+    </Router>
+    
+    
   );
 }
 
