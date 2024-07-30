@@ -1,6 +1,6 @@
 import React , { useEffect, useRef, useState } from "react";
 
-function Main() {
+function Test() {
 
 
     //스트레칭 즐겨찾기 함수
@@ -39,6 +39,28 @@ function Main() {
             .then(data => setData(data))
             .catch(error => console.error("Error fetching data:", error));
     }, []);
+
+
+
+
+    // 주간 캘린더 함수
+    const weeklyCalendar =(date, options) => {
+        if(date == undefined || date == null || typeof date!= "object" || !date instanceof Date){
+            return"";
+        }
+        setCalendarOptions(options);
+
+        var calendarYear = date.getFullYear();
+        var calendarMonth = date.getMonth()+1;
+        var calendarToday = date.getDate();
+        var calenderMonthTodayDay = date.getDay();
+        var arweek = [null, null, null, null, null, null, null];
+
+        var addDay=0;
+        for (var index=calendarMonthTodayDay; index < 7; index++){
+            arweek[index] = new Date(calenderYear, calendarMonth -1, calendarToday + addDay);
+        }
+    }
 
 
 
@@ -103,4 +125,4 @@ function Main() {
 }
 
 
-export default Main;
+export default Test;

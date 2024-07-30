@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import './App.css';
 import Main from "./components/main"
 import First from "./components/first"
+import Test from "./components/test"
 
 
 
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<First />} />
           <Route path="/main" element={<Main />} />
+          <Route path="/test" element={<Test />} />
         </Routes>
       </div>
     </Router>
