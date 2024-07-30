@@ -40,6 +40,11 @@ body {
 
 }
 
+.MainLogo >img {
+  width: 203px;
+  height: 38px;
+}
+
 .MainText {
   display: flex;
   justify-content: center;
