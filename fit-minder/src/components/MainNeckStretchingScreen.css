@@ -1,0 +1,44 @@
+.main-screen {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.progress-container {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    background-color: none;
+}
+
+.progress-bar {
+    height: 5px;
+    transition: width 1s linear;
+    flex: 1;
+    bottom: 30px;
+}
+
+.time-label {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: none;
+    font-family: 'Rubik', sans-serif;
+}
+
+.current-time,
+.total-time {
+    font-size: 14px;
+}
+
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
