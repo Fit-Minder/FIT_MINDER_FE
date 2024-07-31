@@ -5,6 +5,7 @@ import backIconBlack from '../../assets/images/icon-back-black.png';
 
 function AlarmPageOne() {
     const [activeButtons, setActiveButtons] = useState([]);
+    const [selectedNumber, setSelectedNumber] = useState("");
 
     const handleButtonClick = (index) => {
         setActiveButtons((prevActiveButtons) => 
@@ -12,6 +13,10 @@ function AlarmPageOne() {
                 ? prevActiveButtons.filter(buttonIndex => buttonIndex !== index) 
                 : [...prevActiveButtons, index]
         );
+    };
+
+    const handleNumberChange = (event) => {
+        setSelectedNumber(event.target.value);
     };
     
   return (
@@ -41,13 +46,47 @@ function AlarmPageOne() {
                 </div>
             </div>
             <div className='time-content'>
-                <div className='choose-time'>
-                시간설정
+                <div className='choose-time'>시간설정</div>
+                <div className='select-from'>
+                <select className='custom-select'>
+                            <option value="">00:00</option>
+                            {Array.from({ length: 24 }, (_, i) => (
+                                <option key={i} value={i}>{`${i.toString().padStart(2, '0')}:00`}</option>
+                            ))}
+                        </select> <span className='text-from'> 부터</span>
                 </div>
-                <div className='select-from'></div>
+                <div className='select-to'>
+                <select className='custom-select'>
+                            <option value="">00:00</option>
+                            {Array.from({ length: 24 }, (_, i) => (
+                                <option key={i} value={i}>{`${i.toString().padStart(2, '0')}:00`}</option>
+                            ))}
+                        </select> <span className='text-to'> 까지</span>
+                </div>
             </div>
-          </div>
-      </div>    
+            <div className='alarm-repeat-content'>
+                <div className='alarm-repeat'>알람 반복</div>
+                    <div>
+                        <div className='select-alarm-times'>
+                            <select className='custom-select' value={selectedNumber} onChange={handleNumberChange}>
+                                    <option value="">횟수</option>
+                                    {Array.from({ length: 10 }, (_, i) => (
+                                        <option key={i + 1} value={i + 1}>{i + 1}</option>
+                                    ))}
+                                </select>
+                        </div>
+                        <div className='select-alarm-time'>
+                            <select className='custom-select'>
+                                    <option value="">00:00</option>
+                                    {Array.from({ length: 24 }, (_, i) => (
+                                        <option key={i} value={i}>{`${i.toString().padStart(2, '0')}:00`}</option>
+                                    ))}
+                            </select> <span className='text-repeat'> 마다 반복</span>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>  
   );
 };
 
