@@ -3,7 +3,7 @@ import React from "react";
 
 function First() {
     return (
-        <div className="container">
+        <div className="Container">
             <div className="MainLogo">
                 <h1>내 몸에 딱 맞는<br/>간단 스트레칭 서비스</h1>
                 <img src={`${process.env.PUBLIC_URL}/logo.jpg`} alt="" />
