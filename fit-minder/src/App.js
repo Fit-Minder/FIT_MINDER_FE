@@ -13,6 +13,7 @@ import WristStretchingSecond from './components/Stretching/WristStretching-secon
 import EyeStretching from './components/Stretching/EyeStretching';
 import EyeStretchingSecond from './components/Stretching/EyeStretching-second';
 import AlarmPageOne from './components/Alarm/AlarmPage-one';
+import StretchingChoosePage from './components/Stretching-choose/Stretching-choose-page';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/eyestretching" element={<EyeStretching />} />
           <Route path="/eyestretching-second" element={<EyeStretchingSecond />} />
           <Route path="/alarmpage-one" element={<AlarmPageOne />} />
+          <Route path="/stretching-choose-page" element={<StretchingChoosePage />} />
         </Routes>
       </div>
     </Router>
