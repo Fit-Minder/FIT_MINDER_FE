@@ -133,7 +133,6 @@
 
 .select-from {
     position: absolute;
-    left: 24px;
     top: 53px; /* 상단에서 190px 위치 */
     width: 100%;
 }
@@ -162,7 +161,6 @@
 
 .select-to {
     position: absolute;
-    left: 24px;
     top: 110px; /* 상단에서 190px 위치 */
     width: 100%;
 }
@@ -171,6 +169,14 @@
     font-size: 14px;
     font-family: 'Pretendard', sans-serif;
     font-weight: 600;
+    margin-left: 5px;
+}
+
+.select-alarm-container {
+    display: flex; /* 플렉스박스 사용 */
+    align-items: center; /* 세로 정렬 */
+    gap: 16px; /* 아이템 사이의 간격 추가 */
+    position: relative; /* 부모 안에서 위치 조정 */
 }
 
 .alarm-repeat-content {
@@ -191,4 +197,46 @@
     text-align: left;
     letter-spacing: -0.02em;
     color: #000000;
+}
+
+.select-alarm-times,
+.select-alarm-time {
+    display: flex;
+    align-items: center; /* 세로 정렬 */
+    margin-top: 50px;
+}
+
+.text-repeat {
+    margin-left: 11px;
+}
+
+.alarm-bottom-section {
+    bottom: 0; /* 페이지 하단에 위치 */
+    left: 0; /* 왼쪽 가장자리와 정렬 */
+    width: 100%; /* 전체 너비를 차지 */
+    padding: 16px; /* 버튼 주변에 여백 추가 */
+}
+
+.cta-ok-button {
+    position: absolute;
+    Width: 342px;
+    Height: 49px;
+    Left: 24px;
+    bottom: 37px;
+    display: block; /* 블록 레벨 요소로 변경 */
+    margin: 0 auto; /* 가운데 정렬 */
+    padding: 12px 24px; /* 버튼 내부 여백 */
+    font-size: 16px; /* 버튼 텍스트 크기 */
+    font-weight: 700; /* 버튼 텍스트 두께 */
+    color: black; /* 버튼 텍스트 색상 */
+    background-color: #D9D9D9; /* 버튼 배경색 */
+    border: none; /* 버튼 테두리 제거 */
+    border-radius: 8px; /* 버튼 모서리 둥글기 */
+    cursor: pointer; /* 클릭 커서 표시 */
+    transition: background-color 0.3s ease; /* 배경색 전환 효과 */
+}
+
+.cta-ok-button:hover {
+    background-color: black; /* 버튼 호버 시 배경색 변경 */
+    color: white;
 }

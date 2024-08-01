@@ -66,10 +66,10 @@ function AlarmPageOne() {
             </div>
             <div className='alarm-repeat-content'>
                 <div className='alarm-repeat'>알람 반복</div>
-                    <div>
+                    <div className='select-alarm-container'>
                         <div className='select-alarm-times'>
                             <select className='custom-select' value={selectedNumber} onChange={handleNumberChange}>
-                                    <option value="">횟수</option>
+                                    <option value="">0회</option>
                                     {Array.from({ length: 10 }, (_, i) => (
                                         <option key={i + 1} value={i + 1}>{i + 1}</option>
                                     ))}
@@ -85,6 +85,9 @@ function AlarmPageOne() {
                         </div>
                     </div>
             </div>
+        </div>
+        <div className='alarm-bottom-section'>
+            <button className='cta-ok-button'>완료</button>
         </div>
     </div>  
   );
