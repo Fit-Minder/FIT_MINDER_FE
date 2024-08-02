@@ -1,0 +1,108 @@
+/* 기본 앱 스타일 */
+body, html {
+    margin: 0;
+    padding: 0;
+        /* 아이폰 13 기준 화면 크기 */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* 이 속성이 있다면 */
+    position: static; /* 이 속성이 있다면 */
+}
+
+#root {
+    min-width: 390px;
+    min-height: 844px;
+}
+
+body {
+    font-family: 'Pretendard', sans-serif; /* Pretendard 폰트 사용 */
+}
+
+.Container {
+    min-height: 844px;
+    margin: 0 auto;
+    padding:0;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+}
+
+
+/* 캘린더 페이지 헤더 */
+.appBar {
+    margin-top: 26px;
+    width: 100%;
+    display: flex;
+    padding: 12px 155px 12px 24px;
+    justify-content: space-between;
+
+}
+
+.appBar > i {
+    font-size: 3.3rem;
+}
+
+.appBar > p {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 250%;
+}
+
+.withTime {
+    display: flex;
+    flex-direction: column;
+    margin-top: 41px;
+}
+
+.withTime > img {
+    width: 137px;
+    align-self: end;
+    margin-right: 32px;
+}
+
+.timeBox {
+    display: flex;
+    justify-content: space-between;
+    padding: 27px 26px 25px 13px;
+    margin: 0 25px 22px 25px;
+    box-shadow: 0 2px 10px rgb(183, 183, 183);
+    border-radius: 15px;
+}
+
+.timeBox > p {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#withDate {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#withDate > img {
+    width: 37px;
+}
+
+#withDate > p {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+#withGrass {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#withGrass > p {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+#withGrass > img {
+    width: 26.302px;
+    height: 22px;   
+}
