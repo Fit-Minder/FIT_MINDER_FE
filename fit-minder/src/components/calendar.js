@@ -1,8 +1,13 @@
 import React from "react";
+import ReactCalendar from "react-calendar";
 
 
 function Calendar() {
+    const [date, setDate] = React.useState(new Date());
 
+    const onChange = (date) => {
+        setDate(date);
+    };
 
 
     return(
@@ -27,6 +32,9 @@ function Calendar() {
                     <img src={`${process.env.PUBLIC_URL}/grass.png`} alt="" />
                     <p>개</p>
                 </div>
+            </div>
+            <div className="calendarWrapper">
+                <ReactCalendar onChange={onChange} value={date} />
             </div>
         </div> 
     )

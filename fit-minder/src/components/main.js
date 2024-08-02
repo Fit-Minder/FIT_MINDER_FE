@@ -1,4 +1,22 @@
 import React , { useEffect, useRef, useState } from "react";
+import { Calendar, momentLocalizer } from 'react-big-calendar';
+import moment from 'moment';
+
+const localizer = momentLocalizer(moment);
+
+const myEventsList = [
+  {
+    title: 'Meeting',
+    start: new Date(2024, 7, 3, 10, 0), // 월은 0부터 시작하므로 7은 8월입니다.
+    end: new Date(2024, 7, 3, 12, 0),
+  },
+  {
+    title: 'Workout',
+    start: new Date(2024, 7, 5, 14, 0),
+    end: new Date(2024, 7, 5, 16, 0),
+  },
+];
+
 
 function Main() {
 
@@ -45,6 +63,9 @@ function Main() {
     const toggleNav = () => {
         setNavVisible(!navVisible);
     };
+
+    // 주간 캘린더
+    const [events, setEvents] = useState(myEventsList);
 
     return (
         <div className="Container">
@@ -105,7 +126,15 @@ function Main() {
             <div className="Calendar">
                 <img id="CalendarImg" src={`${process.env.PUBLIC_URL}/calendar_img.png`} alt="" />
                 <div className="WeeklyCalendar">
-                    <p>날짜</p>
+                    <Calendar
+                        localizer={localizer}
+                        events={events}
+                        startAccessor="start"
+                        endAccessor="end"
+                        style={{ height: 500 }}
+                        views={['week']}
+                        defaultView="week"  // 주간 뷰를 기본값으로 설정
+                    />
                 </div>
             </div>
         </div>
