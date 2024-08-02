@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './WristStretching.css';
 import backIcon from '../../assets/images/icon-back.png';
 
-
 function WristStretchingSecond() {
     const [timeLeft, setTimeLeft] = useState(30);
   
@@ -15,7 +14,7 @@ function WristStretchingSecond() {
 
     return (
         <div className="screen-wrist-two">
-            <div className="top-section">
+            <div className="wrist-top-section">
                 <div className="StatusBar"></div>
                 <div className="appbar">
                     <img src={backIcon} alt="Back Icon" className="back-icon-image" />
@@ -30,7 +29,7 @@ function WristStretchingSecond() {
                     <div className="timer">{timeLeft}</div> {/* 타이머 추가 */}
                 </div>
             </div>
-            <div className="bottom-section">
+            <div className="wrist-bottom-section">
                 {/* <img src={wristIconTwo} alt="Wrist Icon Two" className="wriststretching-icon-second-image" /> */}
             </div>
         </div>

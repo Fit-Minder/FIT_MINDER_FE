@@ -21,7 +21,7 @@ function WristStretching() {
     
   return (
       <div className="screen-wrist-one">
-          <div className="top-section">
+          <div className="wrist-top-section">
               <div className="StatusBar"></div>
               <div className="appbar">
                   <img src={backIcon} alt="Back Icon" className="back-icon-image" />
@@ -36,7 +36,7 @@ function WristStretching() {
                   <div className="timer">{timeLeft}</div> {/* 타이머 추가 */}
               </div>
           </div>
-          <div className="bottom-section">
+          <div className="wrist-bottom-section">
               {/* <img src={wristIconOne} alt="Wrist Icon one" className="wriststretching-icon-first-image" /> */}
           </div>
       </div>
