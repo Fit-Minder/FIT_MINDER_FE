@@ -2,12 +2,16 @@
 body, html {
   margin: 0;
   padding: 0;
-  min-width: 390px;
-  min-height: 844px; /* 아이폰 13 기준 화면 크기 */
+   /* 아이폰 13 기준 화면 크기 */
   display: flex;
   justify-content: center;
   align-items: center; /* 이 속성이 있다면 */
   position: static; /* 이 속성이 있다면 */
+}
+
+#root {
+  min-width: 390px;
+  min-height: 844px;
 }
 
 body {
@@ -15,7 +19,7 @@ body {
 }
 
 .Container {
-  width: 100%;
+  
   height: auto;
   margin: 0 auto;
   padding:0;
