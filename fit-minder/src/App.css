@@ -25,7 +25,6 @@ body {
   padding:0;
   box-sizing: border-box;
   background-color: rgb(255, 255, 255);
-  border: 1px solid black;
 }
 
 
@@ -339,6 +338,47 @@ body {
 }
 
 
+
+/* FullCalendar 테두리 제거 */
+.fc {
+  border: none;
+}
+
+.fc .fc-header-toolbar {
+  border: none;
+}
+
+.fc .fc-col-header-cell {
+  border: none;
+}
+
+.fc .fc-scrollgrid, .fc .fc-daygrid-body, .fc .fc-timegrid-body {
+  border: none;
+}
+
+.fc .fc-col-header > table, .fc .fc-scrollgrid > table, .fc .fc-daygrid-body > table, .fc .fc-timegrid-body > table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: none;
+}
+
+.fc .fc-col-header > table th, .fc .fc-scrollgrid > table td, .fc .fc-daygrid-body > table td, .fc .fc-timegrid-body > table td {
+  border: none;
+}
+
+.fc .fc-daygrid-day, .fc .fc-daygrid-day-frame, .fc .fc-daygrid-day-number {
+  border: none;
+}
+
+.fc .fc-timegrid-slot, .fc .fc-timegrid-axis {
+  border: none;
+}
+
+.fc-event {
+  border: none;
+}
+
+
 /* 메인 > 주간 캘린더 */
 .Calendar {
   display: flex;
@@ -353,8 +393,60 @@ body {
 
 .WeeklyCalendar {
   display: flex;
-  width: 34.2rem;
+  flex-direction: column;
   height: 33.2rem;
+  
+  
+}
+
+.fc-media-screen {
+  display: flex;
+  margin: 0 16px 0 16px;
+  padding-top: 28px;
+  justify-content: center;
+  border-radius: 21px;
+  height: 332px;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.05);
+}
+
+.fc-header-toolbar {
+  display: flex;
+  flex-direction: column;
+  align-items:  start;
+  justify-content: left;
+  margin-right: 165px;
+}
+
+#fc-dom-16 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-align:left;
+  margin-bottom: 5px;
+}
+
+.fc-dayGridWeek-view {
+  display: flex;
+  justify-content: center;
+
+}
+
+.fc-daygrid-day-frame {
+  height: 110px !important;
+}
+
+.fc-col-header > thead {
+  width: 342px;
+  height: 72px;
+}
+
+.fc-col-header-cell-cushion {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.custom-text {
+  font-size: 22px;
+  font-weight: 600;
 }
 
 /* 맥북 에어 크기 기준 웹 스타일 */

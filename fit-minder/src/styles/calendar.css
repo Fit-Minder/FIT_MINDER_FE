@@ -24,13 +24,12 @@ body {
     padding:0;
     box-sizing: border-box;
     background-color: rgb(255, 255, 255);
-    border: 1px solid black;
 }
 
 
 /* 캘린더 페이지 헤더 */
 .appBar {
-    margin-top: 26px;
+    padding-top: 26px;
     width: 100%;
     display: flex;
     padding: 12px 155px 12px 24px;
@@ -105,4 +104,55 @@ body {
 #withGrass > img {
     width: 26.302px;
     height: 22px;   
+}
+
+.calendarWrapper {
+    width: 332px;
+    height: 360px;
+    display: flex;
+    justify-content: center;
+    margin-left: 26px;
+
+}
+
+.react-calendar__navigation {
+    margin-top: 20px;
+}
+
+.react-calendar__navigation__label__labelText {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.react-calendar__navigation__prev2-button, .react-calendar__navigation__next2-button {
+    display: none;
+}
+
+.react-calendar__navigation__next-button, .react-calendar__navigation__prev-button {
+    font-size: 24px;
+    padding: 0 4px 0 4px;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+    margin-top: 19px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 14.761px;
+    font-weight: 600;
+    
+}
+
+abbr {
+    text-decoration: none;
+}
+
+.react-calendar__tile > abbr {
+    border-radius: 50%;
+    font-size: 14.761px;
+    opacity: 0.4;
+    font-weight: 700;
+    width: 44px;
+    height: 44px;
+    display: block;
+    line-height: 260%;
 }

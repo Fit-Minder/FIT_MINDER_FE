@@ -1,27 +1,11 @@
-import React , { useEffect, useRef, useState } from "react";
-import { Calendar, momentLocalizer } from 'react-big-calendar';
-import moment from 'moment';
-
-const localizer = momentLocalizer(moment);
-
-const myEventsList = [
-  {
-    title: 'Meeting',
-    start: new Date(2024, 7, 3, 10, 0), // 월은 0부터 시작하므로 7은 8월입니다.
-    end: new Date(2024, 7, 3, 12, 0),
-  },
-  {
-    title: 'Workout',
-    start: new Date(2024, 7, 5, 14, 0),
-    end: new Date(2024, 7, 5, 16, 0),
-  },
-];
-
+import React, { useEffect, useRef, useState } from "react";
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
+import koLocale from '@fullcalendar/core/locales/ko';
 
 function Main() {
-
-
-    //스트레칭 즐겨찾기 함수
+    // 스트레칭 즐겨찾기 함수
     const myRef = useRef();
     const [data, setData] = useState([]);
     const [isDown, setIsDown] = useState(false);
@@ -51,7 +35,7 @@ function Main() {
     };
 
     useEffect(() => {
-        // 데이터 패치 (스프링 백엔드에서 받아오기)
+        // 데이터 패치 (스프링 백엔드에서 받아오기) 즐겨찾기한 스트레칭 정보
         fetch("/api/stretchData") // 스프링 백엔드의 엔드포인트
             .then(response => response.json())
             .then(data => setData(data))
@@ -64,83 +48,121 @@ function Main() {
         setNavVisible(!navVisible);
     };
 
-    // 주간 캘린더
-    const [events, setEvents] = useState(myEventsList);
+    useEffect(() => {
+        // 툴바와 캘린더 사이에 문구 삽입하는 로직
+        const toolbarTitleElement = document.querySelector('.fc-toolbar-title');
+        if (toolbarTitleElement) {
+            const customText = document.createElement('p');
+            customText.textContent = '님이 이번 주 심은 잔디에요!';
+            customText.style.textAlign = 'center';
+            customText.style.margin = '0';
+            customText.style.fontSize = '22px';
+            customText.style.fontWeight = '600';
+            customText.style.width = '165px';
+            customText.style.textAlign = 'start';
+            toolbarTitleElement.parentElement.insertAdjacentElement('afterend', customText);
+        }
+    }, []);
+
+    const [events, setEvents] = useState([]);
+
+    useEffect(() => {
+        // 백엔드에서 캘린더 잔디심기 이벤트 데이터 가져오기
+        fetch("/api/eventsData") // 스프링 백엔드의 엔드포인트
+            .then(response => response.json())
+            .then(data => {
+                // 가져온 데이터에 이미지 URL 추가
+                const eventsWithImages = data.map(event => ({
+                    ...event,
+                    imageUrl: `${process.env.PUBLIC_URL}/grass.png` // 모든 이벤트 잔디 img로 표시
+                }));
+                setEvents(eventsWithImages);
+            })
+            .catch(error => console.error("Error fetching events data:", error));
+    }, []);
+
+    const renderEventContent = (eventInfo) => {
+        return (
+            <div>
+                <img src={eventInfo.event.extendedProps.imageUrl} alt="" style={{ width: '26px', height: '22px'}} />
+            </div>
+        );
+    };
 
     return (
         <div className="Container">
             <div className="MainHeader">
                 <div className="Header">
                     <p>FITMINDER</p>
-                    <div className={`Nav ${navVisible ? 'change' : ''}`}  onClick={toggleNav}>
+                    <div className={`Nav ${navVisible ? 'change' : ''}`} onClick={toggleNav}>
                         <div className="bar1"></div>
                         <div className="bar2"></div>
                         <div className="bar3"></div>
-                        
                     </div>
                     <div className={`NavContainer ${navVisible ? 'visible' : ''}`}>
                         <a href="#">알림 설정</a>
                         <a href="#">스트레칭</a>
-                        <a href="#">잔디 캘린더</a>  
+                        <a href="#">잔디 캘린더</a>
                     </div>
                 </div>
-                
+
                 <button className="AlarmBtn">
                     <p>알람 설정 바로가기</p>
                     <img src={`${process.env.PUBLIC_URL}/alarm.png`} alt="" />
                 </button>
                 <div className="HeaderMid">
-                    <p id="HeaderCtx" ><strong>님,</strong> 오늘 하루도<br/>
+                    <p id="HeaderCtx"><strong>님,</strong> 오늘 하루도<br />
                         건강하게 보내봐요</p>
                     <img id="HeaderImg" src={`${process.env.PUBLIC_URL}/header_img.png`} alt="" />
                 </div>
                 <button className="StretchStr">
                     <p>스트레칭 시작하기</p>
-                    <i class="ri-arrow-right-s-line"></i>
+                    <i className="ri-arrow-right-s-line"></i>
                 </button>
             </div>
             <div className="StretchIdx">
                 <div id="StretchText">
                     <p>즐겨찾는 스트레칭</p>
-                    <button><p>더보기</p><i class="ri-arrow-right-s-line"></i></button>
+                    <button><p>더보기</p><i className="ri-arrow-right-s-line"></i></button>
                 </div>
                 <div className="StretchContainer"
-                ref={myRef}
-                onMouseDown={handleMouseDown}
-                onMouseLeave={handleMouseLeave}
-                onMouseUp={handleMouseUp}
-                onMouseMove={handleMouseMove}>
+                    ref={myRef}
+                    onMouseDown={handleMouseDown}
+                    onMouseLeave={handleMouseLeave}
+                    onMouseUp={handleMouseUp}
+                    onMouseMove={handleMouseMove}>
                     <div className="StretchCtx" ref={myRef}>
-                        <i class="ri-bookmark-fill"></i>
+                        <i className="ri-bookmark-fill"></i>
                         {data.map((item, index) => (
                             <div key={index} className="StretchBox">
                                 <h3>{item.stretchName}</h3>
                                 <p>{item.stretchCtx}</p>
                                 <div className="StretchTime">{item.stretchTime}</div>
-                                <img className={item.stretchIcon}/>
+                                <img className={item.stretchIcon} alt="" />
                             </div>
-                            ))}
+                        ))}
                     </div>
-                </div>    
+                </div>
             </div>
             <div className="Calendar">
                 <img id="CalendarImg" src={`${process.env.PUBLIC_URL}/calendar_img.png`} alt="" />
                 <div className="WeeklyCalendar">
-                    <Calendar
-                        localizer={localizer}
+                    <FullCalendar
+                        plugins={[dayGridPlugin, interactionPlugin]}
+                        initialView="dayGridWeek"
+                        locales={[koLocale]}  // 로케일 설정
+                        locale="ko"
                         events={events}
-                        startAccessor="start"
-                        endAccessor="end"
-                        style={{ height: 500 }}
-                        views={['week']}
-                        defaultView="week"  // 주간 뷰를 기본값으로 설정
+                        headerToolbar={{
+                            right: '',
+                        }}
+                        eventContent={renderEventContent} // 이벤트 렌더링 함수 추가
+                        dayHeaderFormat={{ weekday: 'short', day: 'numeric' }}
                     />
                 </div>
             </div>
         </div>
-
-    )
+    );
 }
-
 
 export default Main;
