@@ -14,10 +14,10 @@ function First() {
                     <img src={`${process.env.PUBLIC_URL}/locket.svg`} alt="" />
                 </div>
                 <div className="MainLogin">
-                    <img src={`${process.env.PUBLIC_URL}/kakaotalk.png`} alt="" />
-                    <img src={`${process.env.PUBLIC_URL}/google.png`} alt="" />
-                    <img src={`${process.env.PUBLIC_URL}/github.svg`} alt="" />
-                    <img src={`${process.env.PUBLIC_URL}/naver.svg`} alt="" />
+                    <a href=""><img src={`${process.env.PUBLIC_URL}/kakaotalk.png`} alt="" /></a>
+                    <a href=""><img src={`${process.env.PUBLIC_URL}/google.png`} alt="" /></a>
+                    <a href=""><img src={`${process.env.PUBLIC_URL}/github.svg`} alt="" /></a>
+                    <a href=""><img src={`${process.env.PUBLIC_URL}/naver.svg`} alt="" /></a>
                 </div>
             </div>
         </div>

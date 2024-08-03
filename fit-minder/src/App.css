@@ -80,7 +80,7 @@ body {
   margin-bottom: 16.2rem;
 }
 
-.MainLogin > img {
+.MainLogin > a > img {
   width: 53px;
   height: 53px;
 }
