@@ -37,8 +37,10 @@ body {
 
 }
 
-.appBar > i {
+#appBarLink {
     font-size: 3.3rem;
+    text-decoration: none;
+    padding-top: 2px;
 }
 
 .appBar > p {

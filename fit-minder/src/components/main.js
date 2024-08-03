@@ -1,8 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
+import {Routes, Route, Link} from "react-router-dom";
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import koLocale from '@fullcalendar/core/locales/ko';
+import AlarmPageOne from './Alarm/AlarmPage-one';
+import Calendar from "./calendar";
+import StretchingChoosePage from './Stretching-choose/Stretching-choose-page';
 
 function Main() {
     // 스트레칭 즐겨찾기 함수
@@ -100,14 +104,16 @@ function Main() {
                         <div className="bar3"></div>
                     </div>
                     <div className={`NavContainer ${navVisible ? 'visible' : ''}`}>
-                        <a href="#">알림 설정</a>
-                        <a href="#">스트레칭</a>
-                        <a href="#">잔디 캘린더</a>
+                        <Link to='/alarmpage-one' className="NavContainerLink" >알림 설정</Link>
+                        <Link to='/stretching-choose-page' className="NavContainerLink" >스트레칭</Link>
+                        <Link to='/calendar' className="NavContainerLink" >잔디 캘린더</Link>
                     </div>
                 </div>
 
                 <button className="AlarmBtn">
-                    <p>알람 설정 바로가기</p>
+                    <Link to='/alarmpage-one' id="AlarmLink">
+                        알람 설정 바로가기
+                    </Link>
                     <img src={`${process.env.PUBLIC_URL}/alarm.png`} alt="" />
                 </button>
                 <div className="HeaderMid">
@@ -115,10 +121,13 @@ function Main() {
                         건강하게 보내봐요</p>
                     <img id="HeaderImg" src={`${process.env.PUBLIC_URL}/header_img.png`} alt="" />
                 </div>
-                <button className="StretchStr">
-                    <p>스트레칭 시작하기</p>
-                    <i className="ri-arrow-right-s-line"></i>
-                </button>
+                <Link to="/stretching-choose-page" id='StretchStrLink'>
+                    <button className="StretchStr">
+                        <p>스트레칭 시작하기</p>
+                        <i className="ri-arrow-right-s-line"></i>
+                    </button>
+                </Link>
+                
             </div>
             <div className="StretchIdx">
                 <div id="StretchText">
@@ -140,8 +149,8 @@ function Main() {
                                 <div className="StretchTime">{item.stretchTime}</div>
                                 <img className={item.stretchIcon} alt="" />
                             </div>
-                        ))}
-                    </div>
+                        ))} 
+                    </div> 
                 </div>
             </div>
             <div className="Calendar">
@@ -161,7 +170,17 @@ function Main() {
                     />
                 </div>
             </div>
+           
+        
+                <Routes>
+                    <Route path="/alarmpage-one" element={<AlarmPageOne />} />
+                    <Route path="/calendar" element={<Calendar />} />
+                    <Route path="/stretching-choose-page" element={<StretchingChoosePage />} />
+                </Routes>
+        
+            
         </div>
+        
     );
 }
 

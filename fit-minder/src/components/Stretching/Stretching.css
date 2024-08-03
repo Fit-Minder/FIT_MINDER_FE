@@ -1,0 +1,152 @@
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    width: 390px;
+    height: 844px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+  
+.top-section {
+    width: 100%;
+    height: 574px;
+    position: relative;
+    background-image: url('../../assets/images/stretching-backgound.png');
+    background-size: contain;
+    background-position: center;
+}
+
+.StatusBar {
+    top: 0;
+    height: 47px;
+    width: 100%;
+}
+
+.appbar {
+    text-align: center;
+    height: 48px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+}
+
+.back-icon-image {
+    left: 62.5%;
+    right: -12.5%;
+    top: 25%;
+    bottom: 50%;
+    width: 7.5px;
+    height: 15px;
+    position: absolute;
+    top: 9px; /* Y 위치 */
+    left: 54px; /* X 위치 */
+}
+
+.inner-appbar {
+    line-height: 24px;
+    position: absolute;
+    width: 390px;
+    height: 24px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    top: 10%;
+}
+
+.text-first-step, .text-second-step, .text-third-step, .text-fourth-step {
+    position: absolute;
+    width: 328px;
+    height: 118px;
+    left: 32px;
+    top: 150px;     /* 임의로 작성함. 원래 169px */
+}
+
+.step-one, .step-two, .step-three, .step-four {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 16px;  
+    gap: 4px;
+    position: absolute;
+    width: 76px;
+    height: 31px;
+    left: 126px;
+    background: #FFFFFF;
+    border-radius: 34px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 161%;
+    text-align: center;
+    color: #222222;
+}
+
+.step-one-instructions, .step-two-instructions, .step-three-instructions, .step-four-instructions{
+    position: absolute;
+    width: 328px;
+    height: 76px;
+    top: 40px;      /* 임의로 작성함. 원래 42px */
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;        /* 피그마에는 폰트사이즈 22px(근데 줄바뀜돼서 바꿈) */
+    line-height: 38px;
+    text-align: center;
+    letter-spacing: -0.01em;
+    color: #FFFFFF;
+}
+
+.timer {
+    position: absolute;
+    width: 142px;
+    height: 32px;
+    left: calc(50% - 142px/2 + 1px);
+    top: 135px;         /* 임의로 작성함 */
+    font-family: 'Rubik';
+    font-style: medium;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 32px;
+    text-align: center;
+    letter-spacing: 2px;
+    color: #7FD201;
+}
+
+.neckstretcing-icon-first-image, .neckstretcing-icon-second-image, .shoulderstretching-icon-first-image {
+    position: absolute;
+    width: 399px;
+    height: 462px;
+    left: -5px;
+    top: 350px;     /* 임의로 작성함 */      
+    bottom: 0;
+    padding-right: 20px;
+}
+
+.shoulderstretching-icon-second-image {
+    transform: scaleX(-1);
+    position: absolute;
+    width: 399px;
+    height: 462px;
+    left: -5px;
+    top: 350px;     /* 임의로 작성함 */      
+    bottom: 0;
+    padding-right: 20px;
+}
+
+.bottom-section {
+    width: 100%;
+    height: 32%;
+    background-color: #676767;
+}

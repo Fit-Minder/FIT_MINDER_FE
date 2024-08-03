@@ -5,6 +5,7 @@
     "@fullcalendar/interaction": "^6.1.15",
     "@fullcalendar/react": "^6.1.15",
     "@fullcalendar/timegrid": "^6.1.15",
-    "axios": "^1.7.3"
+    "axios": "^1.7.3",
+    "react-native-push-notification": "^8.1.1"
   }
 }

@@ -178,7 +178,7 @@ body {
   cursor: pointer;
 }
 
-.NavContainer > a {
+.NavContainerLink {
   color: black;
   text-decoration: none;
   font-size: 1.4rem;
@@ -200,9 +200,11 @@ body {
   margin-left: 2.4rem;
 }
 
-.AlarmBtn > p {
+#AlarmLink {
   font-size: 14px;
   font-weight: 500;
+  text-decoration: none;
+
 }
 
 .AlarmBtn > img {
@@ -245,10 +247,10 @@ body {
   padding: 0 8px 0; 
 }
 
-.StretchStr > p {
+#StretchStrLink {
   font-size: 22px;
-  font-style: normal;
   font-weight: 600;
+  text-decoration: none;
 }
 
 .StretchStr > i {
@@ -455,4 +457,5 @@ body {
     
   }
 }
+
 

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import {Link, Route, Routes } from 'react-router-dom';
+import Main from "./main";
 import ReactCalendar from "react-calendar";
 import axios from 'axios';
 
@@ -47,7 +49,7 @@ function Calendar() {
     return (
         <div className="Container">
             <div className="appBar">
-                <i className="ri-arrow-left-s-line"></i>
+                <Link to='/main' id="appBarLink"><i className="ri-arrow-left-s-line"></i></Link>
                 <p>잔디심기</p>
             </div>
             <div className="withTime">
@@ -73,6 +75,9 @@ function Calendar() {
                     tileClassName={tileClassName}
                 />
             </div>
+            <Routes>
+                <Route path="/main" element={<Main />} />
+            </Routes>
         </div>
     );
 }

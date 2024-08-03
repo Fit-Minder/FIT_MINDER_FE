@@ -1,0 +1,240 @@
+.stretching-choose-screen {
+    background-color: white;
+    width: 390px;
+    height: 844px;
+    color: black;
+    position: relative;
+    overflow-y: auto; /* 세로 스크롤 활성화 */
+    overflow-x: hidden; /* 가로 스크롤 비활성화 */
+}
+
+.stretching-choose-top {
+    top: 0;
+    height: 94px;
+}
+
+.StatusBar {
+    height: 47px;
+    width: 390px;
+}
+
+.appbar {
+    width: 100%;
+    height: 48px;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+    font-family: 'Pretendard', sans-serif;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 47px;
+}
+
+.back-icon-black-image {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 24px;
+    z-index: 1;
+}
+
+.inner-appbar {
+    top: 12px;
+}
+
+.stretching-choose-content {
+    position: absolute;
+    top: 168px;
+}
+
+.stretching-part-choose-text {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 53px;
+    text-align: left;
+    margin-left: 24px;
+}
+
+.part-choose-checkbox-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin: 23px 0;
+    margin: 10px 0; /* 간격 조정 */
+    position: relative;
+}
+
+.checkbox-button {
+    display: none;
+}
+
+.custom-checkbox-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    cursor: pointer;
+    transition: border-color 0.3s;
+    position: relative;
+    width: 342px;
+    height: 63px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    left: 24px;
+}
+
+.custom-checkbox-button::before {
+    content: '';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-color: transparent;
+    transition: background-color 0.3s, border-color 0.3s;
+    position: relative;
+}
+
+.checkbox-button:checked + .custom-checkbox-button::before {
+    background-color: #77D32D;
+    border-color: #77D32D;
+}
+
+.checkbox-button:checked + .custom-checkbox-button {
+    border: 1px solid #77D32D;
+}
+
+.icon {
+    cursor: pointer;
+}
+
+.part-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px; /* 아이콘과 텍스트 간격 조정 */
+}
+
+.show-icon {
+    width: 36px;
+    height: 36px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 39px;
+}
+
+.text-icon {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 0; /* 기본 패딩을 0으로 설정 */
+    margin-right: 30px; /* 텍스트와 아이콘 간격 조정 */
+}
+
+.text-icon img {
+    margin-right: 11px;
+}
+
+.show-icon.rotated {
+    transform: rotate(180deg);
+}
+
+.expanded-content {
+    width: 100%;
+    padding: 10px;
+    margin: 0; /* 기본 마진 제거 */
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    max-height: 200px; /* 최대 높이 설정 */
+    overflow-y: auto; /* 세로 스크롤 활성화 */
+    transition: max-height 0.3s ease-in-out; /* 부드러운 애니메이션 */
+}
+
+.expanded-content.show {
+    margin: 0; /* 양쪽 마진 제거 */
+    display: block;
+    max-height: 1000px; /* 적절한 값으로 설정 (큰 값으로 설정해 컨텐츠가 모두 보이게 함) */
+}
+
+.checkbox-button-container.expanded .hidden-content {
+    display: block;
+}
+
+.stretching-choose-screen::-webkit-scrollbar {
+    display: none; /* 웹킷 기반 브라우저에서 스크롤바 숨기기 */
+}
+
+/* 전체 확장된 컨텐츠를 감싸는 div */
+.hidden-content {
+    display: none; /* 기본적으로 숨김 */
+    margin-top: 24px; /* 위쪽 여백 */
+    margin-left: 0;
+    margin-right: 0;
+    left: 0;
+    padding: 22px; /* 내부 여백 */
+    border: 0 solid #ddd; /* 테두리 */
+    border-radius: 33px 33px 0 0; /* 테두리 둥글기 */
+    background-color: #F6F6F6; /* 배경색 */
+    overflow: hidden; /* 내용이 넘치면 숨김 */
+    max-height: 0; /* 기본적으로 높이 0 */
+    transition: max-height 0.3s ease, padding 0.3s ease; /* 부드러운 전환 효과 */
+}
+
+/* 확장된 컨텐츠가 표시될 때 */
+.checkbox-button-container.expanded .hidden-content {
+    display: block; /* 표시 */
+    max-height: 1000px; /* 최대 높이 설정 (필요에 따라 조정) */
+}
+
+/* 이미지 스타일 */
+.content-image {
+    width: 342px;
+    height: 211px;
+    margin-bottom: 10px; /* 이미지 아래 여백 */
+}
+
+.content-title {
+    font-size: 20px; /* 제목 글씨 크기 */
+    font-weight: 700; /* 제목 두께 */
+    font-family: 'Pretendard', sans-serif;
+    line-height: 34px;
+    margin: 10px 0; /* 제목 상하 여백 */
+}
+
+.content-description {
+    font-size: 13.5px; /* 설명 글씨 크기 */
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 400;
+    margin: 0; /* 설명 여백 없음 */
+}
+
+/* 텍스트 스타일 */
+.hidden-content p {
+    font-family: 'Pretendard', sans-serif; /* 텍스트 폰트 */
+    color: #191919; /* 텍스트 색상 */
+    text-align: left;
+}
+
+.save-image {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    margin-bottom: 10px;
+}
