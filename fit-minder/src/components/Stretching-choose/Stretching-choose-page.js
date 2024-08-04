@@ -120,8 +120,17 @@ function StretchingChoosePage() {
                             <Link to='' className='stretching-start-button'><button>스트레칭 시작</button></Link>
                             </div>
                     </div>
+                    <div className='alarm-bottom-section'>
+                        <Link to='' className='stretching-start-button'><button>스트레칭 시작</button></Link>
+                    </div> 
+                </div>
+             
             </div>
+<<<<<<< HEAD
         </div>
+=======
+        
+>>>>>>> b4f8a02b2fed76ce55cb195571a419544710c79a
         <Routes>            {/*경로 수정!*/}
             <Route path="/main" element={<Main />} />
         </Routes>

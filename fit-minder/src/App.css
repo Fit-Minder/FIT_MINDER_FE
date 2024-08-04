@@ -51,7 +51,7 @@ body {
   font-size: 17px;
   font-weight: 600;
   color: black;
-  padding-left: 70px;
+  margin-left: 70px;
 }
 
 /* 웹 헤더바 반응형(수정 필요) */
@@ -492,6 +492,33 @@ body {
 .custom-text {
   font-size: 22px;
   font-weight: 600;
+}
+
+#weeklyCalendarLink {
+  display: flex;
+  justify-content: center;
+}
+
+.weeklyCalendarLink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 310px;
+  height: 46px;
+  background-color: black;
+  padding: 0 9px 0 9px;
+  border-radius: 5px;
+}
+
+.weeklyCalendarLink > p {
+  color: white;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.weeklyCalendarLink > i {
+  color: white;
+  font-size: 30px;
 }
 
 /* 맥북 에어 크기 기준 웹 스타일 */

@@ -45,6 +45,10 @@ function App() {
 
   return (
     <Router>
+<<<<<<< HEAD
+=======
+      <>
+>>>>>>> b4f8a02b2fed76ce55cb195571a419544710c79a
         <HeaderBar/>
           <Routes>
             <Route path="/" element={<First />} />
@@ -68,7 +72,15 @@ function App() {
             <Route path="/timer-bar-wrist" element={<TimerBarWrist />} />
             <Route path="/timer-bar-eye" element={<TimerBarEye />} />
           </Routes>
+<<<<<<< HEAD
       </Router>
+=======
+      </>
+      
+        
+      </Router>    
+    
+>>>>>>> b4f8a02b2fed76ce55cb195571a419544710c79a
   );
 }
 
