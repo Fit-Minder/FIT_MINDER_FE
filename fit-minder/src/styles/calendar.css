@@ -7,11 +7,13 @@ body, html {
     justify-content: center;
     align-items: center; /* 이 속성이 있다면 */
     position: static; /* 이 속성이 있다면 */
+    min-width: 390px;
+    min-height: 844px;
 }
 
 #root {
     min-width: 390px;
-    min-height: 844px;
+    min-height: 100vh;
 }
 
 body {
@@ -24,8 +26,18 @@ body {
     padding:0;
     box-sizing: border-box;
     background-color: rgb(255, 255, 255);
+    flex-wrap: wrap;
 }
 
+@media screen and (min-width: 1280px) {
+    .appBar {
+        margin-top: 71px;
+    }
+    .webHeaderBar{
+      display: flex;
+    }
+  }
+  
 
 /* 캘린더 페이지 헤더 */
 .appBar {

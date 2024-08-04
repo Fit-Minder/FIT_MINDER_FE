@@ -13,6 +13,15 @@
     height: 94px;
 }
 
+@media screen and (min-width: 1280px) {
+    .webHeaderBar{
+      display: flex;
+    }
+    .stretching-choose-screen {
+        margin-top: 40px;
+    }
+  }
+
 .StatusBar {
     height: 47px;
     width: 390px;

@@ -1,17 +1,13 @@
 /* 기본 앱 스타일 */
-body, html {
+#root {
   margin: 0;
   padding: 0;
    /* 아이폰 13 기준 화면 크기 */
   display: flex;
-  justify-content: center;
-  align-items: center; /* 이 속성이 있다면 */
-  position: static; /* 이 속성이 있다면 */
-}
-
-#root {
   min-width: 390px;
-  min-height: 844px;
+  min-height: 100vh;
+  justify-content: center;
+
 }
 
 body {
@@ -19,12 +15,59 @@ body {
 }
 
 .Container {
-  
   height: auto;
   margin: 0 auto;
   padding:0;
+  width: 100%;
   box-sizing: border-box;
   background-color: rgb(255, 255, 255);
+}
+
+
+/* 웹크기 헤더바 */
+.webHeaderBar {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  z-index: 10;
+  background-color: white;
+  float: left;
+  align-items: center;
+  justify-content: start;
+  height: 71px;
+  width: 100%;
+
+}
+
+.webHeaderBar > img {
+  width: 171px;
+  margin-bottom: 8px;
+  margin-left: 30px;
+
+}
+
+.webHeaderBarLink {
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 600;
+  color: black;
+  padding-left: 70px;
+}
+
+/* 웹 헤더바 반응형(수정 필요) */
+@media screen and (max-width: 1280px) {
+  .webHeaderBar{
+    display: none;
+  }
+  .Container{
+    position: static;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .webHeaderBar{
+    display: flex;
+  }
 }
 
 

@@ -30,6 +30,16 @@
     top: 47px;
 }
 
+@media screen and (min-width: 1280px) {
+    .webHeaderBar{
+      display: flex;
+    }
+    .alarm-screen {
+        margin-top: 40px;
+    }
+  }
+  
+
 #appbarLink > img {
     width: 30px;
     height: 30px;
