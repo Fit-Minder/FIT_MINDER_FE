@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import backIcon from '../../assets/images/icon-back.png';
-import shoulderIconOne from '../../assets/images/shoulderstretching-icon-one.png';
 import './Stretching.css';
 
 
@@ -15,7 +14,7 @@ function ShoulderStretchingFourth() {
     }, [timeLeft]);
 
   return (
-      <div className="screen">
+      <div className="screen-shoulder-two">
           <div className="top-section">
               <div className="StatusBar"></div>
               <div className="appbar">
@@ -31,9 +30,7 @@ function ShoulderStretchingFourth() {
                   <div className="timer">{timeLeft}</div> {/* 타이머 추가 */}
               </div>
           </div>
-          <div className="bottom-section">
-              <img src={shoulderIconOne} alt="Shoulder Icon two" className="shoulderstretching-icon-second-image" />
-          </div>
+          <div className="bottom-section"></div>
       </div>
   );
 };

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import backIcon from '../../assets/images/icon-back.png';
-import neckIconTwo from '../../assets/images/neckstretching-icon-two.png';
 import './Stretching.css';
 
 
@@ -15,7 +14,7 @@ function NeckStretchingSecond() {
   }, [timeLeft]);
 
   return (
-    <div className="screen">
+    <div className="screen-neck-two">
         <div className="top-section">
             <div className="StatusBar"></div>
             <div className="appbar">
@@ -31,9 +30,7 @@ function NeckStretchingSecond() {
               <div className="timer">{timeLeft}</div> {/* 타이머 추가 */}
             </div>
           </div>
-          <div className="bottom-section">
-            <img src={neckIconTwo} alt="Neck Icon Two" className="neckstretcing-icon-second-image" />
-          </div>
+          <div className="bottom-section"></div>
       </div>
   );
 }

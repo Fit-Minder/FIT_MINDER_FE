@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import backIcon from '../../assets/images/icon-back.png';
-import neckIconOne from '../../assets/images/neckstretching-icon-one.png';
 import './Stretching.css';
 
 function NeckStretching() {
@@ -19,7 +18,7 @@ function NeckStretching() {
     }, [timeLeft, navigate]);
 
   return (
-      <div className="screen">
+      <div className="screen-neck-one">
           <div className="top-section">
               <div className="StatusBar"></div>
               <div className="appbar">
@@ -35,9 +34,7 @@ function NeckStretching() {
                   <div className="timer">{timeLeft}</div> {/* 타이머 추가 */}
               </div>
           </div>
-          <div className="bottom-section">
-              <img src={neckIconOne} alt="Neck Icon one" className="neckstretcing-icon-first-image" />
-          </div>
+          <div className="bottom-section"></div>
       </div>
   );
 };

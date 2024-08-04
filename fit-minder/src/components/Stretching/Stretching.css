@@ -1,5 +1,4 @@
-
-.screen {
+.screen-neck-one {
     display: flex;
     flex-direction: column;
     color: white;
@@ -8,15 +7,57 @@
     margin: 0 auto;
     position: relative;
     overflow: hidden;
-  }
+    background-image: url('../../assets/images/neckstretching-icon-one.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.screen-neck-two {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    width: 390px;
+    height: 844px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background-image: url('../../assets/images/neckstretching-icon-two.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.screen-shoulder-one {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    width: 390px;
+    height: 844px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background-image: url('../../assets/images/shoulderstretching-icon-one.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.screen-shoulder-two {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    width: 390px;
+    height: 844px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background-image: url('../../assets/images/shoulderstretching-icon-two.png');
+    background-size: cover;
+    background-position: center;
+}
   
 .top-section {
     width: 100%;
     height: 574px;
     position: relative;
-    background-image: url('../../assets/images/stretching-backgound.png');
-    background-size: contain;
-    background-position: center;
 }
 
 .StatusBar {
@@ -76,8 +117,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 4px 16px;  
-    gap: 4px;
+    padding: 4px 16px;
     position: absolute;
     width: 76px;
     height: 31px;
@@ -91,6 +131,7 @@
     line-height: 161%;
     text-align: center;
     color: #222222;
+    white-space: nowrap;
 }
 
 .step-one-instructions, .step-two-instructions, .step-three-instructions, .step-four-instructions{
@@ -122,31 +163,4 @@
     text-align: center;
     letter-spacing: 2px;
     color: #7FD201;
-}
-
-.neckstretcing-icon-first-image, .neckstretcing-icon-second-image, .shoulderstretching-icon-first-image {
-    position: absolute;
-    width: 399px;
-    height: 462px;
-    left: -5px;
-    top: 350px;     /* 임의로 작성함 */      
-    bottom: 0;
-    padding-right: 20px;
-}
-
-.shoulderstretching-icon-second-image {
-    transform: scaleX(-1);
-    position: absolute;
-    width: 399px;
-    height: 462px;
-    left: -5px;
-    top: 350px;     /* 임의로 작성함 */      
-    bottom: 0;
-    padding-right: 20px;
-}
-
-.bottom-section {
-    width: 100%;
-    height: 32%;
-    background-color: #676767;
 }
