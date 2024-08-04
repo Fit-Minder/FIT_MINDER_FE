@@ -11,22 +11,25 @@ const MainScreen = () => {
   const [currentComponent, setCurrentComponent] = useState(<NeckStretching />);
 
   useEffect(() => {
-      const timerId = setInterval(() => {
-          setElapsedTime((prev) => {
-              if (prev < totalTime) {
-                  return prev + 1;
-              } else {
-                  clearInterval(timerId);
-                  return prev;
-              }
-          });
-      }, 1000);
-
-      if (elapsedTime === 7) {
-          setCurrentComponent(<NeckStretchingSecond />);
-      }
-
-      return () => clearInterval(timerId);
+    const timerId = setInterval(() => {
+      setElapsedTime(prev => {
+        if (prev < totalTime) {
+          return prev + 1;
+        } else {
+          clearInterval(timerId);
+          return prev;
+        }
+      });
+    }, 1000);
+  
+    return () => clearInterval(timerId);
+  }, []);
+  
+  useEffect(() => {
+    if (elapsedTime === 7) {
+      setCurrentComponent(<NeckStretchingSecond />);
+    }
+    console.log('Elapsed Time:', elapsedTime); // 디버깅용 로그
   }, [elapsedTime]);
 
   return (

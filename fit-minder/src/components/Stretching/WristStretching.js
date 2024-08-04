@@ -36,9 +36,7 @@ function WristStretching() {
                   <div className="timer">{timeLeft}</div> {/* 타이머 추가 */}
               </div>
           </div>
-          <div className="wrist-bottom-section">
-              {/* <img src={wristIconOne} alt="Wrist Icon one" className="wriststretching-icon-first-image" /> */}
-          </div>
+          <div className="wrist-bottom-section"></div>
       </div>
   );
 };
