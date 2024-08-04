@@ -132,7 +132,6 @@ function Main() {
             <div className="StretchIdx">
                 <div id="StretchText">
                     <p>즐겨찾는 스트레칭</p>
-                    <button><p>더보기</p><i className="ri-arrow-right-s-line"></i></button>
                 </div>
                 <div className="StretchContainer"
                     ref={myRef}
@@ -168,6 +167,12 @@ function Main() {
                         eventContent={renderEventContent} // 이벤트 렌더링 함수 추가
                         dayHeaderFormat={{ weekday: 'short', day: 'numeric' }}
                     />
+                    <Link to='/calendar' id="weeklyCalendarLink">
+                        <div className="weeklyCalendarLink">
+                            <p>자세히 보기</p>
+                            <i class="ri-arrow-right-s-line"></i>
+                        </div>
+                    </Link>
                 </div>
             </div>
            

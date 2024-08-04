@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useEffect} from "react";
+
 
 
 function First() {
@@ -16,7 +17,6 @@ function First() {
                 <div className="MainLogin">
                     <a href=""><img src={`${process.env.PUBLIC_URL}/kakaotalk.png`} alt="" /></a>
                     <a href=""><img src={`${process.env.PUBLIC_URL}/google.png`} alt="" /></a>
-                    <a href=""><img src={`${process.env.PUBLIC_URL}/github.svg`} alt="" /></a>
                     <a href=""><img src={`${process.env.PUBLIC_URL}/naver.svg`} alt="" /></a>
                 </div>
             </div>
