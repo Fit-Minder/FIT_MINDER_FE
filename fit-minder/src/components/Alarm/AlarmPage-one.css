@@ -210,7 +210,6 @@
     color: #000000;
 }
 
-.select-alarm-times,
 .select-alarm-time {
     display: flex;
     align-items: center; /* 세로 정렬 */

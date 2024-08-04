@@ -70,14 +70,6 @@ function AlarmPageOne() {
             <div className='alarm-repeat-content'>
                 <div className='alarm-repeat'>알람 반복</div>
                     <div className='select-alarm-container'>
-                        <div className='select-alarm-times'>
-                            <select className='custom-select' value={selectedNumber} onChange={handleNumberChange}>
-                                    <option value="">0회</option>
-                                    {Array.from({ length: 10 }, (_, i) => (
-                                        <option key={i + 1} value={i + 1}>{i + 1}</option>
-                                    ))}
-                                </select>
-                        </div>
                         <div className='select-alarm-time'>
                             <select className='custom-select'>
                                     <option value="">00:00</option>

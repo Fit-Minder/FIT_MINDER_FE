@@ -54,7 +54,7 @@ function StretchingChoosePage() {
 
     const handleCheckboxChange = (index) => {
         if (selectedCheckboxes.includes(index)) {
-            setSelectedCheckboxes(selectedCheckboxes.filter(i => i !== index));
+            setSelectedCheckboxes(selectedCheckboxes.filter(i => i !== index));     
         } else {
             setSelectedCheckboxes([...selectedCheckboxes, index]);
         }
@@ -116,12 +116,12 @@ function StretchingChoosePage() {
                                     </div>
                                 </div>
                             ))}
+                            <div className='alarm-bottom-section'>
+                            <Link to='' className='stretching-start-button'><button>스트레칭 시작</button></Link>
+                            </div>
                     </div>
             </div>
         </div>
-        <div className='alarm-bottom-section'>
-            <Link to='' className='stretching-start-button'><button>스트레칭 시작</button></Link>
-        </div>  
         <Routes>            {/*경로 수정!*/}
             <Route path="/main" element={<Main />} />
         </Routes>

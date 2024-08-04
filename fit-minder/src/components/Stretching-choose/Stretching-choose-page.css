@@ -248,8 +248,17 @@
     margin-bottom: 10px;
 }
 
+.stretching-start-button {
+    bottom: 0; /* 하단에 고정 */
+    margin-bottom: 0;
+    width: 100%; /* 전체 너비 */
+    left: 0;
+    padding: 0 24px; /* 좌우 패딩 */
+    /*box-sizing: border-box; /* 패딩과 테두리를 포함한 너비 계산 */
+    text-decoration: none;
+}
+
 .stretching-start-button > button {
-    position: absolute;
     Width: 342px;
     Height: 49px;
     Left: 24px;
@@ -265,6 +274,7 @@
     border-radius: 8px; /* 버튼 모서리 둥글기 */
     cursor: pointer; /* 클릭 커서 표시 */
     transition: background-color 0.3s ease; /* 배경색 전환 효과 */
+    text-decoration: none;
 }
 
 .stretching-start-button > button:hover {

@@ -17,7 +17,6 @@ function ShoulderStretching() {
             navigate('/shoulderstretching-second');
         }
     }, [timeLeft, navigate]);
-
     
   return (
       <div className="screen-shoulder-one">
