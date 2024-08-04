@@ -164,3 +164,9 @@
     letter-spacing: 2px;
     color: #7FD201;
 }
+
+.timer-bar {
+    position: absolute;
+    top: 740px;
+    left: 30px;
+}

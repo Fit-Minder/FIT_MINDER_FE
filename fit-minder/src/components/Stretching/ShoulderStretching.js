@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import backIcon from '../../assets/images/icon-back.png';
 import './Stretching.css';
-
+import TimerBarShoulder from './Timer-bar-shoulder'; // Timer 컴포넌트 import
 
 function ShoulderStretching() {
-    const [timeLeft, setTimeLeft] = useState(14);
+    const [timeLeft, setTimeLeft] = useState(15);
     const navigate = useNavigate();
   
     useEffect(() => {
@@ -36,7 +36,9 @@ function ShoulderStretching() {
                   <div className="timer">{timeLeft}</div> {/* 타이머 추가 */}
               </div>
           </div>
-          <div className="bottom-section"></div>
+          <div className='timer-bar'> 
+            <TimerBarShoulder initialTime={60} /> {/* Timer 컴포넌트 사용 */}
+          </div>
     </div>
   );
 };

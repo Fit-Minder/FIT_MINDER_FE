@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import backIcon from '../../assets/images/icon-back.png';
 import './Stretching.css';
+import TimerBarNeck from './Timer-bar-neck'; // Timer 컴포넌트 import
 
 function NeckStretching() {
     const [timeLeft, setTimeLeft] = useState(7);
@@ -34,7 +35,11 @@ function NeckStretching() {
                   <div className="timer">{timeLeft}</div> {/* 타이머 추가 */}
               </div>
           </div>
-          <div className="bottom-section"></div>
+          <div className="bottom-section">
+            <div className='timer-bar'> 
+            <TimerBarNeck initialTime={14} /> {/* Timer 컴포넌트 사용 */}
+            </div>
+          </div>
       </div>
   );
 };

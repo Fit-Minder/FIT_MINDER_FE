@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import backIcon from '../../assets/images/icon-back.png';
 import './WristStretching.css';
+import TimerBarWrist from './Timer-bar-wrist'; // Timer 컴포넌트 import
 
 
 function WristStretching() {
@@ -36,7 +37,11 @@ function WristStretching() {
                   <div className="timer">{timeLeft}</div> {/* 타이머 추가 */}
               </div>
           </div>
-          <div className="wrist-bottom-section"></div>
+          <div className="wrist-bottom-section">
+            <div className='timer-bar'>
+              <TimerBarWrist initialTime={60} /> {/* Timer 컴포넌트 사용 */}
+            </div>
+          </div>
       </div>
   );
 };

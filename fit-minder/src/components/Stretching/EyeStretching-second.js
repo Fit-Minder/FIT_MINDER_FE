@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './EyeStretching.css';
 import backIcon from '../../assets/images/icon-back.png';
+import TimerBarEye from './Timer-bar-eye'; // Timer 컴포넌트 import
 
 
 function EyeStretchingSecond() {
@@ -32,6 +33,9 @@ function EyeStretchingSecond() {
                 </div>
             </div>
             <div className="bottom-section">
+              <div className='timer-bar'>
+                <TimerBarEye initialTime={10} /> {/* Timer 컴포넌트 사용 */}
+              </div>
             </div>
         </div>
     );

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import backIcon from '../../assets/images/icon-back.png';
 import './Stretching.css';
-
+import TimerBarShoulder from './Timer-bar-shoulder'; // Timer 컴포넌트 import
 
 function ShoulderStretchingFourth() {
-    const [timeLeft, setTimeLeft] = useState(10);
+    const [timeLeft, setTimeLeft] = useState(15);
   
     useEffect(() => {
       if (timeLeft > 0) {
@@ -30,7 +30,9 @@ function ShoulderStretchingFourth() {
                   <div className="timer">{timeLeft}</div> {/* 타이머 추가 */}
               </div>
           </div>
-          <div className="bottom-section"></div>
+          <div className='timer-bar'> 
+            <TimerBarShoulder initialTime={15} /> {/* Timer 컴포넌트 사용 */}
+          </div>
       </div>
   );
 };

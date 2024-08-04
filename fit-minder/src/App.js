@@ -18,6 +18,10 @@ import EyeStretchingSecond from './components/Stretching/EyeStretching-second';
 import AlarmPageOne from './components/Alarm/AlarmPage-one';
 import StretchingChoosePage from './components/Stretching-choose/Stretching-choose-page';
 import NeckStretching from './components/Stretching/NeckStretching';
+import TimerBarNeck from './components/Stretching/Timer-bar-neck';
+import TimerBarShoulder from './components/Stretching/Timer-bar-shoulder'
+import TimerBarWrist from './components/Stretching/Timer-bar-wrist';
+import TimerBarEye from './components/Stretching/Timer-bar-eye';
 
 
 //mainscreen 목 스트레칭으로 리다이렉트되는데 확인 필요
@@ -44,6 +48,10 @@ function App() {
           <Route path="/eyestretching-second" element={<EyeStretchingSecond />} />
           <Route path="/alarmpage-one" element={<AlarmPageOne />} />
           <Route path="/stretching-choose-page" element={<StretchingChoosePage />} />
+          <Route path="/timer-bar-neck" element={<TimerBarNeck />} />
+          <Route path="/timer-bar-shoulder" element={<TimerBarShoulder />} />
+          <Route path="/timer-bar-wrist" element={<TimerBarWrist />} />
+          <Route path="/timer-bar-eye" element={<TimerBarEye />} />
         </Routes>
       </div>
     </Router>
