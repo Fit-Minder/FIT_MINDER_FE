@@ -3,6 +3,12 @@
   height: 400px !important; /* 원하는 높이로 조정 */
 }
 
+* {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE10+/Edge */
+  user-select: none; 
+}
 
 /* 기본 앱 스타일 */
 #root {
@@ -264,6 +270,8 @@ body {
 .HeaderMid {
   display: flex;
   margin-top: 12px;
+  position: relative;
+  height: 144.5px;
 }
 
 #HeaderCtx {
@@ -272,11 +280,15 @@ body {
   font-weight: 500;
   margin-top: 12px;
   margin-left: 2.7rem;
+  position: absolute;
 }
 
 #HeaderImg {
+  position: absolute;
   width: 14.8rem;
-  margin-left: 3px;
+  margin-right: 27px;
+  right: 0;
+
 }
 
 
@@ -343,6 +355,10 @@ body {
   cursor: grab;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE10+/Edge */
+  user-select: none; 
   
 }
 
@@ -427,8 +443,22 @@ body {
 
 .fc-event {
   border: none;
+  background-color: transparent !important; /* 이벤트 배경색을 투명하게 설정 */
 }
 
+.fc-daygrid-day-events {
+  margin: 0 !important;
+}
+
+.fc-event-main > div {
+  background-color: transparent;
+}
+
+.fc-day-today {
+  background-color: transparent !important; 
+  color: inherit !important; 
+  font-weight: normal !important; 
+}  /* 오늘 날짜 색상 없애기 */
 
 /* 메인 > 주간 캘린더 */
 .Calendar {
@@ -443,42 +473,79 @@ body {
 }
 
 .WeeklyCalendar {
-  display: flex;
-  flex-direction: column;
+  display: flex !important;
+  flex-direction: column !important;
   height: 33.2rem;
-  
-  
-}
-
-.fc-media-screen {
-  display: flex;
-  margin: 0 16px 0 16px;
-  padding-top: 28px;
-  justify-content: center;
-  border-radius: 21px;
-  height: 332px;
-  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.05);
 }
 
 .fc-header-toolbar {
   display: flex;
   flex-direction: column;
-  align-items:  start;
-  justify-content: left;
+  justify-content: start;
+  align-items: start !important;
+  padding-left: 16px;
+}
+
+.fc .fc-col-header-cell-cushion {
+  display: flex;
+  padding: 2px 4px;
+  height: 72px;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.fc-toolbar-chunk > h2 {
+  text-align: left;
+}
+
+.WeeklyCalendar {
+  display: flex;
+  margin: 0 16px 0 16px;
+  padding-top: 28px;
+  padding-bottom: 64px;
+  justify-content: start;
+  border-radius: 21px;
+  height: 332px;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.05);
+}
+
+.fc-scroller-harness .fc-scroller-harness-liquid {
+  height: 50px !important;
+}
+
+.fc-view-harness .fc-view-harness-active {
+  height: 110px !important;
+}
+
+.fc-scroller {
+  display: inline;
+  flex-direction: column;
+  align-items: start;
+  justify-content: left !important;
   margin-right: 165px;
+}
+
+.fc .fc-scroller-harness {
+  direction: ltr;
+  overflow: hidden;
+  position: relative;
+  height: 72px;
+}
+
+.fc-daygrid-day-frame .fc-scrollgrid-sync-inner {
+  height: auto;
 }
 
 #fc-dom-16 {
   font-size: 1.4rem;
   font-weight: 400;
-  text-align:left;
+  text-align: left;
   margin-bottom: 5px;
 }
 
 .fc-dayGridWeek-view {
   display: flex;
   justify-content: center;
-
 }
 
 .fc-daygrid-day-frame {
@@ -513,11 +580,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 310px;
+  width: 330px;
   height: 46px;
   background-color: black;
   padding: 0 9px 0 9px;
   border-radius: 5px;
+  z-index: 10;
+  margin-top: 20px; /* 수정된 마진 */
 }
 
 .weeklyCalendarLink > p {
@@ -531,11 +600,58 @@ body {
   font-size: 30px;
 }
 
-/* 맥북 에어 크기 기준 웹 스타일 */
-@media (min-width: 1440px) {
-  .container {
-    
-  }
+.fc-view-harness .fc-view-harness-active, .fc-dayGridWeek-view .fc-view .fc-daygrid {
+  height: 30px !important;
 }
 
+.fc .fc-daygrid-day-top {
+  display: none;
+}
+
+
+
+/* 날짜와 요일을 요일, 날짜 형식으로 표시 */
+.fc-col-header-cell-cushion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fc-col-header-cell-cushion .fc-day {
+  order: 1; /* 요일을 위로 이동 */
+}
+
+.fc-col-header-cell-cushion .fc-day-number {
+  order: 2; /* 날짜를 아래로 이동 */
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.fc .fc-col-header-cell-cushion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fc .fc-col-header-cell-cushion span {
+  display: block;
+  margin-bottom: -10px;
+}
+
+.fc .fc-col-header-cell-cushion .fc-day {
+  color: #999999; /* 원하는 색상으로 변경 */
+}
+
+.fc .fc-col-header-cell-cushion .fc-day-number {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.fc-col-header-cell-cushion > div > span:nth-child(1){
+  color: #999999; 
+}
+
+.fc-col-header-cell-cushion > div > span:nth-child(3){
+  color: #666666; 
+}
 

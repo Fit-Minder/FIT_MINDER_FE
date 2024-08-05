@@ -5,6 +5,17 @@
   box-sizing: border-box;
 }
 
+/* 스크롤 바 숨김 */
+*::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
 /* 폰트 크기의 팽창을 방지합니다. */
 html {
   -moz-text-size-adjust: none;

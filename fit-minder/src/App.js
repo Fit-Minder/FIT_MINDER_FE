@@ -22,6 +22,8 @@ import TimerBarNeck from './components/Stretching/Timer-bar-neck';
 import TimerBarShoulder from './components/Stretching/Timer-bar-shoulder'
 import TimerBarWrist from './components/Stretching/Timer-bar-wrist';
 import TimerBarEye from './components/Stretching/Timer-bar-eye';
+import ScrollToTop from './scroll';
+
 
 function HeaderBar() {
   const location = useLocation();
@@ -47,11 +49,12 @@ function App() {
     <Router>
       <>
         <HeaderBar/>
+        <ScrollToTop />
           <Routes>
             <Route path="/" element={<First />} />
             <Route path="/mainscreen" element={<MainScreen />} />
             <Route path="/main/*" element={<Main />} />
-            <Route path="/calendar" element={<Calendar />} />
+            <Route path="/calendar/*" element={<Calendar />} />
             <Route path="/neckstretching" element={<NeckStretching />} />
             <Route path="/neckstretching-second" element={<NeckStretchingSecond />} />
             <Route path="/shoulderstretching" element={<ShoulderStretching />} />
