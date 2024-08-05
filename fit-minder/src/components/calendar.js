@@ -4,35 +4,40 @@ import Main from "./main";
 import ReactCalendar from "react-calendar";
 import axios from 'axios';
 
+
+
 function Calendar() {
     const [events, setEvents] = useState([]);
-
 
     useEffect(() => {
         // 백엔드에서 이벤트 데이터를 가져오는 함수
         const fetchEvents = async () => {
-          try {
-            const response = await axios.get('/api/events'); // API 엔드포인트에 맞게 수정
-            setEvents(response.data);
-          } catch (error) {
-            console.error('Error fetching events:', error);
-          }
+            try {
+                const response = await axios.get('/members/{memberId}/month-grass'); // API 엔드포인트에 맞게 수정
+                const data = response.data;
+                const eventsWithDates = data.grassList.map(event => ({
+                    date: new Date(event.grassDate)
+                }));
+                setEvents(eventsWithDates);
+            } catch (error) {
+                console.error('Error fetching events:', error);
+            }
         };
-    
-        fetchEvents();
-      }, []);
-    
-      const formatDay = (locale, date) => date.getDate();
 
-      const tileClassName = ({ date, view }) => {
+        fetchEvents();
+    }, []);
+
+    const formatDay = (locale, date) => date.getDate();
+
+    const tileClassName = ({ date, view }) => {
         if (view === 'month') {
-          const eventDates = events.map(event => new Date(event.date).toDateString());
-          if (eventDates.includes(date.toDateString())) {
-            return 'highlight';
-          }
+            const eventDates = events.map(event => event.date.toDateString());
+            if (eventDates.includes(date.toDateString())) {
+                return 'highlight';
+            }
         }
         return null;
-      };
+    };
 
     useEffect(() => {
         const disableButton = () => {

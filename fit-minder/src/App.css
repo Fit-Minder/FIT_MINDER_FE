@@ -1,3 +1,9 @@
+/* 커스텀 스타일 추가 */
+.fc-scroller {
+  height: 400px !important; /* 원하는 높이로 조정 */
+}
+
+
 /* 기본 앱 스타일 */
 #root {
   margin: 0;
@@ -482,6 +488,10 @@ body {
 .fc-col-header > thead {
   width: 342px;
   height: 72px;
+}
+
+.fc-daygrid-day-frame {
+  height: 38px !important;
 }
 
 .fc-col-header-cell-cushion {

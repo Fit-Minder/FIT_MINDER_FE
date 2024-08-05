@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import {Routes, Route, Link} from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
@@ -9,7 +9,6 @@ import Calendar from "./calendar";
 import StretchingChoosePage from './Stretching-choose/Stretching-choose-page';
 
 function Main() {
-    // 스트레칭 즐겨찾기 함수
     const myRef = useRef();
     const [data, setData] = useState([]);
     const [isDown, setIsDown] = useState(false);
@@ -34,15 +33,20 @@ function Main() {
         if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - myRef.current.offsetLeft;
-        const walk = (x - startX.current) * 3; // 스크롤 속도 조절
+        const walk = (x - startX.current) * 3;
         myRef.current.scrollLeft = scrollLeft.current - walk;
     };
 
     useEffect(() => {
-        // 데이터 패치 (스프링 백엔드에서 받아오기) 즐겨찾기한 스트레칭 정보
-        fetch("/api/stretchData") // 스프링 백엔드의 엔드포인트
+        fetch("https://like-fit.p-e.kr/api/v1/members/1/week-grass")
             .then(response => response.json())
-            .then(data => setData(data))
+            .then(data => {
+                if (data.grassList) {
+                    setData(data.grassList);
+                } else {
+                    console.error("Unexpected data format:", data);
+                }
+            })
             .catch(error => console.error("Error fetching data:", error));
     }, []);
 
@@ -53,7 +57,6 @@ function Main() {
     };
 
     useEffect(() => {
-        // 툴바와 캘린더 사이에 문구 삽입하는 로직
         const toolbarTitleElement = document.querySelector('.fc-toolbar-title');
         if (toolbarTitleElement) {
             const customText = document.createElement('p');
@@ -71,16 +74,23 @@ function Main() {
     const [events, setEvents] = useState([]);
 
     useEffect(() => {
-        // 백엔드에서 캘린더 잔디심기 이벤트 데이터 가져오기
-        fetch("/api/eventsData") // 스프링 백엔드의 엔드포인트
+        fetch("https://like-fit.p-e.kr/api/v1/members/1/month-grass")
             .then(response => response.json())
             .then(data => {
-                // 가져온 데이터에 이미지 URL 추가
-                const eventsWithImages = data.map(event => ({
-                    ...event,
-                    imageUrl: `${process.env.PUBLIC_URL}/grass.png` // 모든 이벤트 잔디 img로 표시
-                }));
-                setEvents(eventsWithImages);
+                console.log("Fetched data:", data);
+                if (data.grassList) {
+                    const eventsWithImages = data.grassList.map(event => ({
+                        title: "이벤트 생성", // 이벤트 제목 설정
+                        start: event.grassDate, // 시작 날짜
+                        extendedProps: {
+                            imageUrl: `${process.env.PUBLIC_URL}/grass.png` // 이벤트 이미지 URL 설정
+                        }
+                    }));
+                    console.log("Events with Images:", eventsWithImages);
+                    setEvents(eventsWithImages);
+                } else {
+                    console.error("Unexpected data format:", data);
+                }
             })
             .catch(error => console.error("Error fetching events data:", error));
     }, []);
@@ -88,7 +98,8 @@ function Main() {
     const renderEventContent = (eventInfo) => {
         return (
             <div>
-                <img src={eventInfo.event.extendedProps.imageUrl} alt="" style={{ width: '26px', height: '22px'}} />
+                <span>{eventInfo.event.title}</span>
+                <img src={eventInfo.event.extendedProps.imageUrl} alt="Grass" style={{ width: '26px', height: '22px', marginLeft: '4px' }} />
             </div>
         );
     };
@@ -127,7 +138,6 @@ function Main() {
                         <i className="ri-arrow-right-s-line"></i>
                     </button>
                 </Link>
-                
             </div>
             <div className="StretchIdx">
                 <div id="StretchText">
@@ -148,8 +158,8 @@ function Main() {
                                 <div className="StretchTime">{item.stretchTime}</div>
                                 <img className={item.stretchIcon} alt="" />
                             </div>
-                        ))} 
-                    </div> 
+                        ))}
+                    </div>
                 </div>
             </div>
             <div className="Calendar">
@@ -158,34 +168,29 @@ function Main() {
                     <FullCalendar
                         plugins={[dayGridPlugin, interactionPlugin]}
                         initialView="dayGridWeek"
-                        locales={[koLocale]}  // 로케일 설정
+                        locales={[koLocale]}
                         locale="ko"
                         events={events}
                         headerToolbar={{
                             right: '',
                         }}
-                        eventContent={renderEventContent} // 이벤트 렌더링 함수 추가
+                        eventContent={renderEventContent}
                         dayHeaderFormat={{ weekday: 'short', day: 'numeric' }}
                     />
                     <Link to='/calendar' id="weeklyCalendarLink">
                         <div className="weeklyCalendarLink">
                             <p>자세히 보기</p>
-                            <i class="ri-arrow-right-s-line"></i>
+                            <i className="ri-arrow-right-s-line"></i>
                         </div>
                     </Link>
                 </div>
             </div>
-           
-        
-                <Routes>
-                    <Route path="/alarmpage-one" element={<AlarmPageOne />} />
-                    <Route path="/calendar" element={<Calendar />} />
-                    <Route path="/stretching-choose-page" element={<StretchingChoosePage />} />
-                </Routes>
-        
-            
+            <Routes>
+                <Route path="/alarmpage-one" element={<AlarmPageOne />} />
+                <Route path="/calendar" element={<Calendar />} />
+                <Route path="/stretching-choose-page" element={<StretchingChoosePage />} />
+            </Routes>
         </div>
-        
     );
 }
 
