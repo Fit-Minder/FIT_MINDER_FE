@@ -4,6 +4,7 @@ import './EyeStretching.css';
 import backIcon from '../../assets/images/icon-back.png';
 import TimerBarEye from './Timer-bar-eye'; // Timer 컴포넌트 import
 
+
 function EyeStretching() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ function EyeStretching() {
       if (timeLeft > 0) {
           const timerId = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
           return () => clearTimeout(timerId);
+
       } else {
           if (nextIndex < stretchingQueue.length - 1) {
               // 다음 스트레칭 페이지로 이동
@@ -28,7 +30,6 @@ function EyeStretching() {
   const handleBackClick = () => {
     navigate(-1); // 이전 페이지로 이동
   };
-
     
   return (
       <div className="screen-eye-one">

@@ -49,7 +49,7 @@ const expandedContents = [
 ];
 
 const memberId = '1'; // 실제 사용자 ID로 대체
-
+/*
 async function updateFavoriteStretching(stretchingId, isFavorite) {
     const url = `https://like-fit.p-e.kr/api/v1/members/1/like/${stretchingId}`; // 서버 URL
 
@@ -71,6 +71,34 @@ async function updateFavoriteStretching(stretchingId, isFavorite) {
         console.error('Fetch error:', error);
     }
 }
+*/
+async function updateFavoriteStretching(stretchingId, isFavorite) {
+    const url = `https://like-fit.p-e.kr/api/v1/members/1/like/${stretchingId}`; // 서버 URL
+
+    try {
+        const response = await fetch(url, {
+            method: isFavorite ? 'POST' : 'DELETE', // 즐겨찾기 추가 시 POST, 삭제 시 DELETE
+            headers: { 'Content-Type': 'application/json' }
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        // 응답이 JSON 형식인지 확인
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+            const result = await response.json();
+            console.log('Server response:', result);
+        } else {
+            console.log('Server response is not JSON:', await response.text());
+        }
+
+    } catch (error) {
+        console.error('Fetch error:', error);
+    }
+}
+
 
 function StretchingChoosePage() {
     const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);

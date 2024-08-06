@@ -1,8 +1,6 @@
 // src/components/Stretching/Timer-bar.js
 import React, { useState, useEffect } from 'react';
 import './Timer-bar-shoulder.css'; // CSS 파일 import
-import TimerBarEye from './Timer-bar-eye'; // Timer 컴포넌트 import
-
 
 const TimerBar = ({ initialTime, onFinish }) => {
     const [timeLeft, setTimeLeft] = useState(initialTime);
