@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
-
+import { BrowserRouter as Router, Route, Routes, Link, useLocation } from 'react-router-dom';
+import Main from "./main";
 
 
 function First() {
@@ -20,11 +21,14 @@ function First() {
                 <img src={`${process.env.PUBLIC_URL}/locket.svg`} alt="" />
             </div>
             <div className="MainLogin">
-                <a href="https://like-fit.p-e.kr/oauth2/authorization/kakao"><img src={`${process.env.PUBLIC_URL}/kakaotalk.png`} alt="" /></a>
-                <a href="https://like-fit.p-e.kr/oauth2/authorization/google"><img src={`${process.env.PUBLIC_URL}/google.png`} alt="" /></a>
-                <a href="https://like-fit.p-e.kr/oauth2/authorization/naver"><img src={`${process.env.PUBLIC_URL}/naver.svg`} alt="" /></a>
+                <Link to='/main'><img src={`${process.env.PUBLIC_URL}/kakaotalk.png`} alt="" class="loginImg"/></Link>
+                <Link to='/main'><img src={`${process.env.PUBLIC_URL}/google.png`} alt="" class="loginImg"/></Link>
+                <Link to='/main'><img src={`${process.env.PUBLIC_URL}/naver.svg`} alt="" class="loginImg"/></Link>
             </div>
         </div>
+        <Routes>
+                <Route path="/main" element={<Main />} />
+            </Routes>
     </div>
 )}
 export default First;
