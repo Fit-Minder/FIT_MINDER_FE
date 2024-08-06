@@ -12,7 +12,7 @@ export async function handleAllowNotification() {
     if (permission === 'granted') {
       const token = await getToken(getMessaging(app), {
         vapidKey:
-          'BNJ7lSxiQuyGVJie5bJVaQSS_IVDFm7RQeIpLML-goB7_YFyJZa8SDcA27o17g7ZRB5HLTUrAJkz64iLX1LDgkY',
+        'BGr4GbsH8MB206HgLtGCkFSw0L0ZYE3Z-4KUGrYyW-PkCZHLIjU-5978gsTgr-qkDAYeu_Ue6Eh_710G7tvwu0k',
       });
       if (token) {
         console.log('token = ', token); // (토큰을 서버로 전송하는 로직)

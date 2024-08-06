@@ -6,13 +6,13 @@ importScripts(
 );
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDBqTix4yMtj4_pWDDLE7ccRPCOmd1_gwA",
-  authDomain: "fit-minder-8e052.firebaseapp.com",
-  projectId: "fit-minder-8e052",
-  storageBucket: "fit-minder-8e052.appspot.com",
-  messagingSenderId: "238627606106",
-  appId: "1:238627606106:web:89c9b55f4544548e905263",
-  measurementId: "G-53CP6CPFNF"
+  apiKey: 'AIzaSyB4NJgBIXe_6oKZKi5Wt5pSyt9uPnSyni8',
+  authDomain: 'fitminderfcm.firebaseapp.com',
+  projectId: 'fitminderfcm',
+  storageBucket: 'fitminderfcm.appspot.com',
+  messagingSenderId: '851446458104',
+  appId: '1:851446458104:web:4238a3dec480ba25da7d0d',
+  measurementId: 'G-FZW7JTWGKN',
 };
 
 firebase.initializeApp(firebaseConfig);

@@ -1,4 +1,6 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { requestForToken, onMessageListener } from './firebase';
 import { BrowserRouter as Router, Route, Routes, Link, useLocation } from 'react-router-dom';
 import './App.css';
 import './styles/calendar.css';
@@ -26,9 +28,20 @@ import StretchingTimer from './components/Stretching-choose/StretchingTimer';
 import FinalizeStretching from './components/Stretching/FinalizeStretching';
 import ScrollToTop from './scroll';
 
+
 function HeaderBar() {
   const location = useLocation();
 
+  useEffect(() => {
+    requestForToken();
+
+    onMessageListener()
+      .then((payload) => {
+        console.log('Received foreground message: ', payload);
+        // Handle the foreground message here
+      })
+      .catch((err) => console.log('failed: ', err));
+  }, []);
   // First 페이지에서는 헤더바를 숨김
   if (location.pathname === '/') {
     return null;
@@ -47,6 +60,7 @@ function HeaderBar() {
 function App() {
 
   return (
+    
     <Router>
       <>
         <HeaderBar/>
@@ -57,7 +71,7 @@ function App() {
             <Route path="/main/*" element={<Main />} />
             <Route path="/calendar/*" element={<Calendar />} />
             <Route path="/neckstretching" element={<NeckStretching />} />
-            <Route path="/neckstretching-second" element={<NeckStretchingSecond />} />
+            <Route path="/neckstretching-second" element={<NecktStrechingSecond />} />
             <Route path="/shoulderstretching" element={<ShoulderStretching />} />
             <Route path="/shoulderstretching-second" element={<ShoulderStretchingSecond />} />
             <Route path="/shoulderstretching-third" element={<ShoulderStretchingThird />} />
