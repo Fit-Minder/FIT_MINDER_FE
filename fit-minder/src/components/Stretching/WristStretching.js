@@ -5,22 +5,6 @@ import './WristStretching.css';
 import TimerBarWrist from './Timer-bar-wrist'; // Timer 컴포넌트 import
 import StretchingChoosePage from '../Stretching-choose/Stretching-choose-page';
 
-/*
-function WristStretching() {
-        const [timeLeft, setTimeLeft] = useState(30);
-        const navigate = useNavigate();
-      
-        useEffect(() => {
-            if (timeLeft > 0) {
-                const timerId = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
-                return () => clearTimeout(timerId);
-            } else {
-                // 타이머가 끝났을 때, 다음 화면으로 이동
-                navigate('/wriststretching-second');
-            }
-        }, [timeLeft, navigate]);
-*/
-
 function WristStretching() {
     const location = useLocation();
     const navigate = useNavigate();

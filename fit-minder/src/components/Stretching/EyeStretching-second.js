@@ -5,56 +5,9 @@ import backIcon from '../../assets/images/icon-back.png';
 import TimerBarEye from './Timer-bar-eye'; // Timer 컴포넌트 import
 import StretchingChoosePage from '../Stretching-choose/Stretching-choose-page';
 
-/*
-function EyeStretchingSecond() {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const { timerDuration, nextIndex } = location.state || { timerDuration: 10000, nextIndex: null }; // 기본값 설정
-  const [timeLeft, setTimeLeft] = useState(timerDuration / 1000);
-
-  useEffect(() => {
-      if (timeLeft > 0) {
-          const timerId = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
-          return () => clearTimeout(timerId);
-      } else {
-          if (nextIndex !== null) {
-              navigate(routes[nextIndex], { state: { timerDuration: timers[nextIndex], nextIndex: nextIndex + 1 } });
-          } else {
-              navigate('/main');
-          }
-      }
-  }, [timeLeft, navigate, nextIndex]);
-  */
-/*
-  function EyeStretchingSecond() {
-    const location = useLocation();
-    const navigate = useNavigate();
-    const { timerDuration, nextIndex, stretchingQueue } = location.state || { timerDuration: 10000, nextIndex: 0, stretchingQueue: [] };
-    const [timeLeft, setTimeLeft] = useState(timerDuration / 1000);
-
-    useEffect(() => {
-        if (timeLeft > 0) {
-            const timerId = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
-            return () => clearTimeout(timerId);
-        } else {
-            // 타이머 종료 후 다음 스트레칭으로 이동
-            const nextStretching = stretchingQueue[nextIndex + 1];
-            if (nextStretching) {
-                const { page, duration } = nextStretching;
-                navigate(page, { state: { timerDuration: duration, nextIndex: nextIndex + 1, stretchingQueue } });
-            } else {
-                navigate('/main');
-            }
-        }
-    }, [timeLeft, navigate, nextIndex, stretchingQueue]);
-    */
-
     function EyeStretchingSecond() {
         const location = useLocation();
         const navigate = useNavigate();
-        /*
-        const { timerDuration, nextIndex, selectedCheckboxes } = location.state || { timerDuration: 10000, nextIndex: 0, selectedCheckboxes: [] };
-       */
         const { timerDuration = 10000, nextIndex = 0, selectedCheckboxes = [] } = location.state || {};
         const [timeLeft, setTimeLeft] = useState(timerDuration / 1000);
 

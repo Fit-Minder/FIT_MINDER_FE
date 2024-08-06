@@ -6,46 +6,6 @@ import TimerBarWrist from './Timer-bar-wrist'; // Timer 컴포넌트 import
 import StretchingChoosePage from '../Stretching-choose/Stretching-choose-page';
 
 function WristStretchingSecond() {
-  /*
-    const location = useLocation();
-    const navigate = useNavigate();
-    const { timerDuration, nextIndex } = location.state || { timerDuration: 30000, nextIndex: null }; // 기본값 설정
-    const [timeLeft, setTimeLeft] = useState(timerDuration / 1000);
-
-    useEffect(() => {
-        if (timeLeft > 0) {
-            const timerId = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
-            return () => clearTimeout(timerId);
-        } else {
-            if (nextIndex !== null) {
-                navigate(routes[nextIndex], { state: { timerDuration: timers[nextIndex], nextIndex: nextIndex + 1 } });
-            } else {
-                navigate('/main');
-            }
-        }
-    }, [timeLeft, navigate, nextIndex]);
-    */
-    /*
-      const location = useLocation();
-      const navigate = useNavigate();
-      const { timerDuration, nextIndex, stretchingQueue } = location.state || { timerDuration: 30000, nextIndex: 0, stretchingQueue: [] };
-      const [timeLeft, setTimeLeft] = useState(timerDuration / 1000);
-  
-      useEffect(() => {
-          if (timeLeft > 0) {
-              const timerId = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
-              return () => clearTimeout(timerId);
-          } else {
-              const nextStretching = stretchingQueue[nextIndex + 1];
-              if (nextStretching) {
-                  const { page, duration } = nextStretching;
-                  navigate(page, { state: { timerDuration: duration, nextIndex: nextIndex + 1, stretchingQueue } });
-              } else {
-                  navigate('/main');
-              }
-          }
-      }, [timeLeft, navigate, nextIndex, stretchingQueue]);
-    */
 
   const location = useLocation();
   const navigate = useNavigate();
