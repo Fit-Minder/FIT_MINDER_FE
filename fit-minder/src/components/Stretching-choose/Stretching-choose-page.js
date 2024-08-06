@@ -51,7 +51,7 @@ const expandedContents = [
 const memberId = '1'; // 실제 사용자 ID로 대체
 
 async function updateFavoriteStretching(stretchingId, isFavorite) {
-    const url = `https://example.com/members/${memberId}/like/${stretchingId}`; // 서버 URL
+    const url = `https://like-fit.p-e.kr/api/v1/members/1/like/${stretchingId}`; // 서버 URL
 
     try {
         const response = await fetch(url, {

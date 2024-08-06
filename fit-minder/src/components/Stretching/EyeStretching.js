@@ -3,8 +3,6 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import './EyeStretching.css';
 import backIcon from '../../assets/images/icon-back.png';
 import TimerBarEye from './Timer-bar-eye'; // Timer 컴포넌트 import
-import StretchingChoosePage from '../Stretching-choose/Stretching-choose-page';
-
 
 function EyeStretching() {
   const location = useLocation();
@@ -27,13 +25,17 @@ function EyeStretching() {
       }
   }, [timeLeft, navigate, nextIndex, stretchingQueue]);
 
+  const handleBackClick = () => {
+    navigate(-1); // 이전 페이지로 이동
+  };
+
     
   return (
       <div className="screen-eye-one">
           <div className="top-section">
               <div className="StatusBar"></div>
               <div className="appbar">
-                <img src={backIcon} alt="Back Icon" className="back-icon-image" />
+              <img src={backIcon} alt="Back Icon" className="back-icon-image" onClick={handleBackClick} />
                 <p className="inner-appbar">눈 스트레칭</p>
               </div>
               <div className="text-first-step">

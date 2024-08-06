@@ -43,7 +43,7 @@ function HeaderBar() {
       .catch((err) => console.log('failed: ', err));
   }, []);
   // First 페이지에서는 헤더바를 숨김
-  if (location.pathname === '/') {
+  if (location.pathname === '/', '/neckstretching', '/neckstretching-second', '/shoulderstretching', '/shoulderstretching-second', '/shoulderstretching-third', '/shoulderstretching-fourth', '/wriststretching', '/wriststretching-second', '/eyestretching', '/eyestretching-second', '/timer-bar-neck', '/timer-bar-shoulder', '/timer-bar-wrist', '/timer-bar-eye') {
     return null;
   }
 
