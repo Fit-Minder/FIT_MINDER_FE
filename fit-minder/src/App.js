@@ -43,7 +43,23 @@ function HeaderBar() {
       .catch((err) => console.log('failed: ', err));
   }, []);
   // First 페이지에서는 헤더바를 숨김
-  if (location.pathname === '/', '/neckstretching', '/neckstretching-second', '/shoulderstretching', '/shoulderstretching-second', '/shoulderstretching-third', '/shoulderstretching-fourth', '/wriststretching', '/wriststretching-second', '/eyestretching', '/eyestretching-second', '/timer-bar-neck', '/timer-bar-shoulder', '/timer-bar-wrist', '/timer-bar-eye') {
+  if (
+    location.pathname === '/' ||
+    location.pathname === '/neckstretching' ||
+    location.pathname === '/neckstretching-second' ||
+    location.pathname === '/shoulderstretching' ||
+    location.pathname === '/shoulderstretching-second' ||
+    location.pathname === '/shoulderstretching-third' ||
+    location.pathname === '/shoulderstretching-fourth' ||
+    location.pathname === '/wriststretching' ||
+    location.pathname === '/wriststretching-second' ||
+    location.pathname === '/eyestretching' ||
+    location.pathname === '/eyestretching-second' ||
+    location.pathname === '/timer-bar-neck' ||
+    location.pathname === '/timer-bar-shoulder' ||
+    location.pathname === '/timer-bar-wrist' ||
+    location.pathname === '/timer-bar-eye'
+  ) {
     return null;
   }
 
@@ -71,7 +87,7 @@ function App() {
             <Route path="/main/*" element={<Main />} />
             <Route path="/calendar/*" element={<Calendar />} />
             <Route path="/neckstretching" element={<NeckStretching />} />
-            <Route path="/neckstretching-second" element={<NecktStrechingSecond />} />
+            <Route path="/neckstretching-second" element={<NeckStretchingSecond />} />
             <Route path="/shoulderstretching" element={<ShoulderStretching />} />
             <Route path="/shoulderstretching-second" element={<ShoulderStretchingSecond />} />
             <Route path="/shoulderstretching-third" element={<ShoulderStretchingThird />} />
