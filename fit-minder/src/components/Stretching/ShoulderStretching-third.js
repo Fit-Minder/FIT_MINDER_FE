@@ -1,22 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import backIcon from '../../assets/images/icon-back.png';
 import './Stretching.css';
 import TimerBarShoulder from './Timer-bar-shoulder'; // Timer 컴포넌트 import
+import StretchingChoosePage from '../Stretching-choose/Stretching-choose-page';
 
 function ShoulderStretchingThird() {
-    const [timeLeft, setTimeLeft] = useState(15);
+    const location = useLocation();
     const navigate = useNavigate();
-  
+    const { timerDuration, nextIndex, stretchingQueue } = location.state || { timerDuration: 15000, nextIndex: 0, stretchingQueue: [] };
+    const [timeLeft, setTimeLeft] = useState(timerDuration / 1000);
+
     useEffect(() => {
         if (timeLeft > 0) {
             const timerId = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
             return () => clearTimeout(timerId);
         } else {
-            // 타이머가 끝났을 때, 다음 화면으로 이동
-            navigate('/shoulderstretching-fourth');
+            if (nextIndex < stretchingQueue.length - 1) {
+                // 다음 스트레칭 페이지로 이동
+                navigate('/shoulderstretching-fourth', { state: { timerDuration: 15000, nextIndex: nextIndex, stretchingQueue } });
+            } else {
+                // 모든 스트레칭이 끝나면 main 페이지로 이동
+                navigate('/main');
+            }
         }
-    }, [timeLeft, navigate]);
+    }, [timeLeft, navigate, nextIndex, stretchingQueue]);
 
   return (
       <div className="screen-shoulder-two">

@@ -22,6 +22,8 @@ import TimerBarNeck from './components/Stretching/Timer-bar-neck';
 import TimerBarShoulder from './components/Stretching/Timer-bar-shoulder'
 import TimerBarWrist from './components/Stretching/Timer-bar-wrist';
 import TimerBarEye from './components/Stretching/Timer-bar-eye';
+import StretchingTimer from './components/Stretching-choose/StretchingTimer';
+import FinalizeStretching from './components/Stretching/FinalizeStretching';
 
 function HeaderBar() {
   const location = useLocation();
@@ -45,10 +47,7 @@ function App() {
 
   return (
     <Router>
-<<<<<<< HEAD
-=======
       <>
->>>>>>> b4f8a02b2fed76ce55cb195571a419544710c79a
         <HeaderBar/>
           <Routes>
             <Route path="/" element={<First />} />
@@ -71,16 +70,13 @@ function App() {
             <Route path="/timer-bar-shoulder" element={<TimerBarShoulder />} />
             <Route path="/timer-bar-wrist" element={<TimerBarWrist />} />
             <Route path="/timer-bar-eye" element={<TimerBarEye />} />
+            <Route path="/stretching-timer" element={<StretchingTimer />} />
+            <Route path="/FinalizeStretching" element={<FinalizeStretching />} />
           </Routes>
-<<<<<<< HEAD
-      </Router>
-=======
       </>
       
-        
       </Router>    
     
->>>>>>> b4f8a02b2fed76ce55cb195571a419544710c79a
   );
 }
 

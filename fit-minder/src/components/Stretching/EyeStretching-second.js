@@ -1,18 +1,89 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './EyeStretching.css';
 import backIcon from '../../assets/images/icon-back.png';
 import TimerBarEye from './Timer-bar-eye'; // Timer 컴포넌트 import
+import StretchingChoosePage from '../Stretching-choose/Stretching-choose-page';
 
-
+/*
 function EyeStretchingSecond() {
-    const [timeLeft, setTimeLeft] = useState(10);
-  
-    useEffect(() => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { timerDuration, nextIndex } = location.state || { timerDuration: 10000, nextIndex: null }; // 기본값 설정
+  const [timeLeft, setTimeLeft] = useState(timerDuration / 1000);
+
+  useEffect(() => {
       if (timeLeft > 0) {
-        const timerId = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
-        return () => clearTimeout(timerId);
+          const timerId = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+          return () => clearTimeout(timerId);
+      } else {
+          if (nextIndex !== null) {
+              navigate(routes[nextIndex], { state: { timerDuration: timers[nextIndex], nextIndex: nextIndex + 1 } });
+          } else {
+              navigate('/main');
+          }
       }
-    }, [timeLeft]);
+  }, [timeLeft, navigate, nextIndex]);
+  */
+/*
+  function EyeStretchingSecond() {
+    const location = useLocation();
+    const navigate = useNavigate();
+    const { timerDuration, nextIndex, stretchingQueue } = location.state || { timerDuration: 10000, nextIndex: 0, stretchingQueue: [] };
+    const [timeLeft, setTimeLeft] = useState(timerDuration / 1000);
+
+    useEffect(() => {
+        if (timeLeft > 0) {
+            const timerId = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+            return () => clearTimeout(timerId);
+        } else {
+            // 타이머 종료 후 다음 스트레칭으로 이동
+            const nextStretching = stretchingQueue[nextIndex + 1];
+            if (nextStretching) {
+                const { page, duration } = nextStretching;
+                navigate(page, { state: { timerDuration: duration, nextIndex: nextIndex + 1, stretchingQueue } });
+            } else {
+                navigate('/main');
+            }
+        }
+    }, [timeLeft, navigate, nextIndex, stretchingQueue]);
+    */
+
+    function EyeStretchingSecond() {
+        const location = useLocation();
+        const navigate = useNavigate();
+        /*
+        const { timerDuration, nextIndex, selectedCheckboxes } = location.state || { timerDuration: 10000, nextIndex: 0, selectedCheckboxes: [] };
+       */
+        const { timerDuration = 10000, nextIndex = 0, selectedCheckboxes = [] } = location.state || {};
+        const [timeLeft, setTimeLeft] = useState(timerDuration / 1000);
+
+        console.log('location.state:', location.state);
+        console.log('selectedCheckboxes:', selectedCheckboxes);
+      
+        useEffect(() => {
+
+            if (!Array.isArray(selectedCheckboxes)) {
+                console.error('selectedCheckboxes가 배열이 아닙니다.');
+                return;
+              }
+
+            if (timeLeft > 0) {
+                const timerId = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+                return () => clearTimeout(timerId);
+            } else {
+                if (nextIndex < selectedCheckboxes.length - 1) {
+                    const nextStretching = selectedCheckboxes[nextIndex + 1];
+                    if (nextStretching !== null) {
+                        navigate(nextStretching.page, { state: { timerDuration: nextStretching.duration, nextIndex: nextIndex + 1, selectedCheckboxes } });
+                    }
+                } else {
+                    // 모든 스트레칭이 끝나면 FinalizeStretching으로 이동
+                    navigate('/FinalizeStretching', { state: { selectedCheckboxes } });
+                }
+            }
+        }, [timeLeft, navigate, nextIndex, selectedCheckboxes]);
+
 
     return (
         <div className="screen-eye-two">
@@ -25,9 +96,8 @@ function EyeStretchingSecond() {
                 <div className="text-second-step">
                     <div className="step-two">STEP 2</div>
                     <div className="step-two-instructions">
-                      검지에서 시선을 떼지 말고<br/>
-                      최대한 가운데로 몰릴때까지 <br/>
-                      손가락을 가까이 가져와주세요
+                      검지에서 시선을 떼지 말고 최대한 가운데로<br/>
+                      몰릴때까지 손가락을 가까이 가져와주세요<br/>
                     </div>
                     <div className="timer">{timeLeft}</div> {/* 타이머 추가 */}
                 </div>
