@@ -476,7 +476,9 @@ export default StretchingChoosePage;
 
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import './Stretching-choose-page.css';
+import Main from '../main';
 import backIconBlack from '../../assets/images/icon-back-black.png';
 import wristIcon from '../../assets/images/wrist-icon.png';
 import eyeIcon from '../../assets/images/eye-icon.png';
@@ -639,18 +641,11 @@ function StretchingChoosePage() {
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-        </div>
-    );
-}
-=======
-        
         <Routes>            {/*경로 수정!*/}
             <Route path="/main" element={<Main />} />
         </Routes>
     </div>
   );
 };
->>>>>>> 9e2d99d88e3f6525c490b015ae24443fdd0181b5
 
 export default StretchingChoosePage;

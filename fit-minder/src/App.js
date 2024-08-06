@@ -22,13 +22,9 @@ import TimerBarNeck from './components/Stretching/Timer-bar-neck';
 import TimerBarShoulder from './components/Stretching/Timer-bar-shoulder'
 import TimerBarWrist from './components/Stretching/Timer-bar-wrist';
 import TimerBarEye from './components/Stretching/Timer-bar-eye';
-<<<<<<< HEAD
 import StretchingTimer from './components/Stretching-choose/StretchingTimer';
 import FinalizeStretching from './components/Stretching/FinalizeStretching';
-=======
 import ScrollToTop from './scroll';
-
->>>>>>> 9e2d99d88e3f6525c490b015ae24443fdd0181b5
 
 function HeaderBar() {
   const location = useLocation();

@@ -171,11 +171,15 @@ function FinalizeStretching() {
   const { selectedCheckboxes } = location.state || { selectedCheckboxes: [] };
 
   const postStretchingCompletion = async () => {
+    /*
     const memberId = 'user123'; // 실제 사용자 ID로 교체
-    const url = `https://example.com/members/${memberId}/grass`; // 서버 URL
+    */
+    const url = `https://like-fit.p-e.kr/api/v1/members/1/grass`; // 서버 URL
 
     const data = {
+      /*
       memberId, // 사용자 ID
+      */
       completedExercises: Array.isArray(selectedCheckboxes) ? selectedCheckboxes : [] // 체크박스 배열이 undefined인 경우 빈 배열로 설정
     };
 
