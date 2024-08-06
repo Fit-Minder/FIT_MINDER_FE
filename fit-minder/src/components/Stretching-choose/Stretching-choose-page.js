@@ -639,8 +639,18 @@ function StretchingChoosePage() {
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
         </div>
     );
 }
+=======
+        
+        <Routes>            {/*경로 수정!*/}
+            <Route path="/main" element={<Main />} />
+        </Routes>
+    </div>
+  );
+};
+>>>>>>> 9e2d99d88e3f6525c490b015ae24443fdd0181b5
 
 export default StretchingChoosePage;

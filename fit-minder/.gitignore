@@ -21,3 +21,61 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+# Node.js 관련
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 디렉토리 및 환경 파일
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 빌드 출력 디렉토리
+/build
+
+# 로그 파일
+*.log
+
+# 로컬 IDE 설정
+.idea/
+.vscode/
+
+# 운영 체제별 파일
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# 리액트 관련
+public/favicon.ico
+public/manifest.json
+public/robots.txt
+coverage/
+
+# 테스트 관련
+*.test.js
+*.test.jsx
+*.spec.js
+*.spec.jsx
+jest.config.js
+coverage/
+
+# 빌드 및 배포 관련
+build/
+dist/
+
+# TypeScript 관련
+*.tsbuildinfo
+*.tscache
+
+# 기타
+*.bak
+*.swp
+*.swo

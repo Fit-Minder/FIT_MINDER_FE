@@ -249,7 +249,20 @@
 }
 
 .stretching-start-button {
+<<<<<<< HEAD
     font-family: 'Pretendard', sans-serif;
+=======
+    text-decoration: none;
+}
+
+.alarm-bottom-section {
+    margin-left: 5px;
+
+}
+
+.stretching-start-button > button {
+ 
+>>>>>>> 9e2d99d88e3f6525c490b015ae24443fdd0181b5
     Width: 342px;
     Height: 49px;
     Left: 24px;

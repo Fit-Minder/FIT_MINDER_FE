@@ -4,35 +4,49 @@ import Main from "./main";
 import ReactCalendar from "react-calendar";
 import axios from 'axios';
 
+
+
 function Calendar() {
     const [events, setEvents] = useState([]);
-
+    const [memberName, setMemberName] = useState('');
+    const [withTime, setWithTime] = useState(0);
+    const [grassCount, setGrassCount] = useState(0);
 
     useEffect(() => {
         // 백엔드에서 이벤트 데이터를 가져오는 함수
         const fetchEvents = async () => {
-          try {
-            const response = await axios.get('/api/events'); // API 엔드포인트에 맞게 수정
-            setEvents(response.data);
-          } catch (error) {
-            console.error('Error fetching events:', error);
-          }
-        };
-    
-        fetchEvents();
-      }, []);
-    
-      const formatDay = (locale, date) => date.getDate();
+            try {
+                const response = await axios.get('https://like-fit.p-e.kr/api/v1/members/1/month-grass'); // API 엔드포인트에 맞게 수정
+                const data = response.data;
 
-      const tileClassName = ({ date, view }) => {
+                setMemberName(data.memberName);
+                setWithTime(data.withTime);
+                setGrassCount(data.grassCount);
+
+                const eventsWithDates = data.grassList.map(event => ({
+                    date: new Date(event.grassDate)
+                }));
+                console.log(data);
+                setEvents(eventsWithDates);
+            } catch (error) {
+                console.error('Error fetching events:', error);
+            }
+        };
+        
+        fetchEvents();
+    }, []);
+
+    const formatDay = (locale, date) => date.getDate();
+
+    const tileClassName = ({ date, view }) => {
         if (view === 'month') {
-          const eventDates = events.map(event => new Date(event.date).toDateString());
-          if (eventDates.includes(date.toDateString())) {
-            return 'highlight';
-          }
+            const eventDates = events.map(event => event.date.toDateString());
+            if (eventDates.includes(date.toDateString())) {
+                return 'highlight';
+            }
         }
         return null;
-      };
+    };
 
     useEffect(() => {
         const disableButton = () => {
@@ -55,18 +69,18 @@ function Calendar() {
             <div className="withTime">
                 <img id="CalendarImg" src={`${process.env.PUBLIC_URL}/calendar_img.png`} alt="" />
                 <div className="timeBox">
-                    <p>님이<br />핏 마인더와 함께한 시간</p>
+                    <p id="timeBoxText">{memberName}님이<br />핏 마인더와 함께한 시간</p>
                     <div id="withDate">
                         <img src={`${process.env.PUBLIC_URL}/alarm.png`} alt="" />
-                        <p>일</p>
+                        <p>{withTime}일</p>
                     </div>
                 </div>
             </div>
             <div className="timeBox">
-                <p>님이<br />핏 마인더와 함께한 시간</p>
+                <p>{memberName}님이<br />핏 마인더와 함께한 시간</p>
                 <div id="withGrass">
                     <img src={`${process.env.PUBLIC_URL}/grass.png`} alt="" />
-                    <p>개</p>
+                    <p>{grassCount}개</p>
                 </div>
             </div>
             <div className="calendarWrapper">

@@ -87,6 +87,10 @@ body {
     font-weight: 700;
 }
 
+#timeBoxText {
+    margin-top: 5px;
+}
+
 #withDate {
     display: flex;
     flex-direction: column;
@@ -158,6 +162,8 @@ body {
 
 abbr {
     text-decoration: none;
+    padding-top: 2px;
+
 }
 
 .react-calendar__tile > abbr {
@@ -170,3 +176,17 @@ abbr {
     display: block;
     line-height: 260%;
 }
+
+
+/* 일단 임시 */
+/* 하이라이트 클래스 스타일 */
+.highlight {
+    background-color: #77D32D !important; 
+    border-radius: 50%;
+    color: #000 !important; /* 폰트 색상 변경 필요 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } /* 이벤트 원 크기 조정 필요함 */
+  
+
