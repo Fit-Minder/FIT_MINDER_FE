@@ -7,7 +7,7 @@ import axios from 'axios';
 
 
 function Calendar() {
-    const [events, setEvents] = useState([]);
+    const [events, setEvents] = useState([]); // 변수를 업데이트하는 setEvents를 지정, 초기 상태를 []로 설정한 것
     const [memberName, setMemberName] = useState('');
     const [withTime, setWithTime] = useState(0);
     const [grassCount, setGrassCount] = useState(0);
