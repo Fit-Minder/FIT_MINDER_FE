@@ -17,7 +17,7 @@
 ## 👩🏻‍💻 팀원 소개
 |Design|FE|FE|BE|BE|BE|
 |:--:|:--:|:--:|:--:|:--:|:--:|
-|나혜주|김지윤|주유민|김남기|김지원|이채원
+|라혜주|김지윤|주유민|김남기|김지원|이채원
 |인천대학교|인천대학교|인천대학교|인천대학교|인천대학교|인천대학교|
 ||[@jiyoonkim01](https://github.com/jiyoonkim01)|[@yumin22](https://github.com/yumin22)|[@namkikim0718](https://github.com/namkikim0718)|[@supportlaver](https://github.com/supportlaver)|[@C-ongshim](https://github.com/C-ongshim)|
 
