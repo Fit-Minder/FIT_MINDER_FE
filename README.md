@@ -1,5 +1,5 @@
 > 멋쟁이 사자처럼 12기 중앙 해커톤
-# FIT MINDER_FE
+# FIT MINDER 프론트엔드 레포지토리입니다.
 
 <img src="https://github.com/user-attachments/assets/625b9117-36c5-4745-a27b-e220955e5815">
 
